@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
+[ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Gradient" id=45]
 offsets = PoolRealArray( 0.00977995, 0.180929, 0.391198 )
@@ -15,6 +16,15 @@ colors = PoolColorArray( 0.217712, 0.425044, 0.480469, 1 )
 
 [sub_resource type="GradientTexture" id=48]
 gradient = SubResource( 47 )
+
+[sub_resource type="RectangleShape2D" id=49]
+extents = Vector2( 56.3097, 11.3725 )
+
+[sub_resource type="RectangleShape2D" id=50]
+extents = Vector2( 17.9231, 22.4854 )
+
+[sub_resource type="RectangleShape2D" id=51]
+extents = Vector2( 27.3177, 22.4854 )
 
 [node name="Map" type="Node2D"]
 position = Vector2( 38.9882, 55.5286 )
@@ -46,3 +56,77 @@ z_index = -2
 texture = SubResource( 48 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 640, 480 )
+
+[node name="Current" parent="." instance=ExtResource( 2 )]
+position = Vector2( 378.266, 274.591 )
+rotation = 3.12266
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current"]
+shape = SubResource( 49 )
+
+[node name="Current2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 304.268, 286.989 )
+rotation = -2.76597
+scale = Vector2( 1, 1 )
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current2"]
+shape = SubResource( 50 )
+
+[node name="Current3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 270.95, 303.842 )
+rotation = 2.81457
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current3"]
+shape = SubResource( 50 )
+
+[node name="Current4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 248.867, 335.611 )
+rotation = 2.78542
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current4"]
+shape = SubResource( 50 )
+
+[node name="Current5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 233.757, 373.965 )
+rotation = 2.64451
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current5"]
+shape = SubResource( 50 )
+
+[node name="Current6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 226.396, 419.681 )
+rotation = 2.30066
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current6"]
+shape = SubResource( 50 )
+
+[node name="Current7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 238.988, 455.324 )
+rotation = 2.22876
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current7"]
+shape = SubResource( 50 )
+
+[node name="Current8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 260.102, 487.674 )
+rotation = 0.874321
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current8"]
+rotation = 0.0709569
+shape = SubResource( 51 )
