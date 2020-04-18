@@ -20,13 +20,10 @@ func _process(delta):
 			particles.emission_rect_extents = collision_shape.shape.extents
 			particles.direction = Vector2(cos(forceRotation), sin(forceRotation))
 			particles.angle = rad2deg(forceRotation)
-		else:
-			print("False")
 
 
 func get_force_vector():
-	var offset = sin(float(Engine.get_physics_frames()) / TAU)
-	return Vector2(cos(forceRotation + offset) * forceMagnitude, sin(forceRotation) * forceMagnitude)
+	return Vector2(cos(forceRotation + self.rotation) * forceMagnitude, sin(forceRotation + self.rotation) * forceMagnitude)
 
 #func _ready():
 #	self.connect("area_entered", self, "handle_enter")

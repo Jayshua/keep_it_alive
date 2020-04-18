@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 const FRICTION = 0.98
-const ACCELERATION = 2
+const ACCELERATION = 1
 const MAX_MOVEMENT_SPEED = 40
 const MAX_CURRENT_SPEED = 1000
 const OXYGEN_USAGE = 0.1
@@ -35,15 +35,12 @@ func _physics_process(delta):
 	var in_current = false
 	for current in $DetectionArea.get_overlapping_areas():
 		if (current as Area2D).get_collision_layer_bit(2):
-			print("In Surface")
 			player_oxygen = clamp(player_oxygen + 1, 0, MAX_OXYGEN)
 		elif (current as Area2D).get_collision_layer_bit(3):
-			print("In Ship")
 			if current.needs_oxygen():
 				current.give_oxygen(TRANSFER_RATE)
 				player_oxygen -= TRANSFER_RATE
 		else:
-			print("In Current")
 			in_current = true
 			velocity += current.get_force_vector()
 

@@ -1,12 +1,19 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=4]
+[ext_resource path="res://WorldEnvironment.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 56.3097, 11.3725 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 17.9231, 22.4854 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 27.3177, 22.4854 )
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -44,25 +51,106 @@ animations = [ {
 "speed": 4.0
 } ]
 
+[sub_resource type="Environment" id=10]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 0.0
+glow_strength = 0.0
+glow_bloom = 0.34
+glow_blend_mode = 1
+glow_hdr_threshold = 0.17
+adjustment_enabled = true
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Current" parent="." instance=ExtResource( 4 )]
-forceRotation = 1.571
+position = Vector2( 377.142, 275.099 )
+rotation = -3.16053
+forceRotation = 3.142
+forceMagnitude = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Current"]
-position = Vector2( -25.0132, 3.00006 )
 shape = SubResource( 9 )
+
+[node name="Current2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 303.144, 287.497 )
+rotation = -2.76597
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current2"]
+shape = SubResource( 11 )
+
+[node name="Current3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 269.826, 304.35 )
+rotation = -3.46861
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current3"]
+shape = SubResource( 11 )
+
+[node name="Current4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 247.743, 336.119 )
+rotation = -3.49777
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current4"]
+shape = SubResource( 11 )
+
+[node name="Current5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 232.633, 374.473 )
+rotation = -3.63867
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current5"]
+shape = SubResource( 11 )
+
+[node name="Current6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 225.272, 420.189 )
+rotation = -3.98252
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current6"]
+shape = SubResource( 11 )
+
+[node name="Current7" parent="." instance=ExtResource( 4 )]
+position = Vector2( 237.864, 455.832 )
+rotation = -4.05443
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current7"]
+shape = SubResource( 11 )
+
+[node name="Current8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 258.978, 488.182 )
+rotation = -5.40886
+forceRotation = 3.142
+forceMagnitude = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current8"]
+rotation = 0.0709569
+shape = SubResource( 12 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 448, 272 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 443.317, 255.94 )
+position = Vector2( 299.168, 520.087 )
+rotation = 3.03626
 scale = Vector2( 0.2, 0.2 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 10 )
+script = ExtResource( 5 )
