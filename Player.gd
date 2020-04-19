@@ -42,6 +42,8 @@ func _physics_process(delta):
 		elif current.get_collision_layer_bit(1):
 			in_current = true
 			velocity += current.get_force_vector()
+		elif current.get_collision_layer_bit(4):
+			print("Take")
 
 	if velocity.length() > (MAX_CURRENT_SPEED if in_current else MAX_MOVEMENT_SPEED):
 		velocity *= 0.85

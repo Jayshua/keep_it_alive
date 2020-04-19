@@ -53,6 +53,7 @@ move_right={
 2d_physics/layer_3="Surface"
 2d_physics/layer_4="Ship"
 2d_physics/layer_5="ConnectionRange"
+2d_physics/layer_6="Items"
 
 [rendering]
 

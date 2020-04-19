@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Ship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://WorldEnvironment.gd" type="Script" id=5]
+[ext_resource path="res://sprites/gear.png" type="Texture" id=6]
 [ext_resource path="res://Main.gd" type="Script" id=10]
 [ext_resource path="res://OxygenCLI.gd" type="Script" id=11]
 [ext_resource path="res://fonts/whitrabt.ttf" type="DynamicFontData" id=12]
@@ -59,6 +60,9 @@ adjustment_enabled = true
 size = 20
 font_data = ExtResource( 12 )
 
+[sub_resource type="CircleShape2D" id=14]
+radius = 7.94764
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -96,3 +100,18 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 574.918, 282.429 )
+
+[node name="Sprite" type="Sprite" parent="Node2D"]
+scale = Vector2( 0.25, 0.25 )
+z_index = -1
+texture = ExtResource( 6 )
+
+[node name="Area2D" type="Area2D" parent="Node2D"]
+collision_layer = 32
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Area2D"]
+shape = SubResource( 14 )
