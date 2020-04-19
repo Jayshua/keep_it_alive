@@ -15,6 +15,8 @@ var player_oxygen = 100
 var has_item = false
 var burst_cooldown = 0
 
+var engine_sound = 0
+var engine_sound_target = 0
 
 func _physics_process(delta):
 	var moving = false
@@ -85,6 +87,17 @@ func _physics_process(delta):
 
 	if moving:
 		player_oxygen -= OXYGEN_USAGE
+		engine_sound_target = -5
+	else:
+		engine_sound_target = -18
+	
+	if engine_sound > engine_sound_target:
+		engine_sound -= 0.5
+	elif engine_sound < engine_sound_target:
+		engine_sound += 1
+	
+	print(engine_sound)
+	$RunningSound.volume_db = engine_sound
 
 
 
