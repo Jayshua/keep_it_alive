@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://audio/Current.wav" type="AudioStream" id=4]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.00977995, 0.180929, 0.391198 )
@@ -31,7 +32,7 @@ extents = Vector2( 27.3177, 22.4854 )
 extents = Vector2( 528, 32 )
 
 [node name="Map" type="Node2D"]
-position = Vector2( 38.9882, 55.5286 )
+position = Vector2( 447.309, -221.635 )
 
 [node name="Cave" type="TileMap" parent="."]
 position = Vector2( 25.0118, 24.4714 )
@@ -169,3 +170,21 @@ position = Vector2( 883.895, 535.563 )
 
 [node name="Item5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 858.013, 264.477 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 355.8, 297.628 )
+stream = ExtResource( 4 )
+autoplay = true
+max_distance = 100.0
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 275.543, 450.731 )
+stream = ExtResource( 4 )
+autoplay = true
+max_distance = 100.0
+
+[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 282.076, 355.252 )
+stream = ExtResource( 4 )
+autoplay = true
+max_distance = 150.0
