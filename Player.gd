@@ -4,13 +4,16 @@ const FRICTION = 0.98
 const ACCELERATION = 1
 const MAX_MOVEMENT_SPEED = 40
 const MAX_CURRENT_SPEED = 1000
+const MAX_BURST_SPEED = 1000
 const OXYGEN_USAGE = 0.01
 const MAX_OXYGEN = 100
 const TRANSFER_RATE = 0.15
+const BURST_ACCELERATION = 100
 
 var velocity = Vector2(0, 0)
 var player_oxygen = 100
 var has_item = false
+var burst_cooldown = 0
 
 
 func _physics_process(delta):
@@ -32,6 +35,18 @@ func _physics_process(delta):
 		moving = true
 		velocity += Vector2.RIGHT * ACCELERATION
 
+	if Input.is_action_pressed("fire"):
+		if player_oxygen > 40 and burst_cooldown < 1:
+			player_oxygen -= 25
+			burst_cooldown = 5
+			$Explosion.frame = 0
+			velocity += velocity.normalized() * BURST_ACCELERATION
+			for blocker in get_tree().get_nodes_in_group("Blocker"):
+				if blocker.position.distance_squared_to(self.position) < 400:
+					blocker.queue_free()
+
+	burst_cooldown -= 1 * delta
+
 	var in_current = false
 	for current in $DetectionArea.get_overlapping_areas():
 		if (current as Area2D).get_collision_layer_bit(2):
@@ -51,7 +66,15 @@ func _physics_process(delta):
 			current.get_parent().queue_free()
 			has_item = true
 
-	if velocity.length() > (MAX_CURRENT_SPEED if in_current else MAX_MOVEMENT_SPEED):
+	var max_speed
+	if in_current:
+		max_speed = MAX_CURRENT_SPEED
+	elif burst_cooldown > 3:
+		max_speed = MAX_BURST_SPEED
+	else:
+		max_speed = MAX_MOVEMENT_SPEED
+
+	if velocity.length() > max_speed:
 		velocity *= 0.85
 
 	velocity *= FRICTION

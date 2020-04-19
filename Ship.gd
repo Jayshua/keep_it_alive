@@ -1,7 +1,7 @@
 extends Node2D
 
 const MAX_OXYGEN = 50
-const LEAK_RATE = 1.2
+const LEAK_RATE = 0.5
 const MISSING_ITEMS = 6
 
 signal player_connection_change(is_connected)

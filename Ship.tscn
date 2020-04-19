@@ -3,13 +3,13 @@
 [ext_resource path="res://Ship.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ship.png" type="Texture" id=2]
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=1]
 radius = 16.6339
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=2]
 radius = 9.19228
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 144, 80 )
 
 [node name="Ship" type="Node2D"]
@@ -26,13 +26,13 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExchangeDetector"]
 position = Vector2( 2.13147, 1.0231 )
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 1.53461, 1.87567 )
-shape = SubResource( 10 )
+shape = SubResource( 2 )
 
 [node name="ConnectionDetector" type="Area2D" parent="."]
 collision_layer = 0
@@ -40,7 +40,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ConnectionDetector"]
 position = Vector2( 5.75702, -41.506 )
-shape = SubResource( 11 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="ExchangeDetector" to="." method="_on_ExchangeDetector_body_entered"]
 [connection signal="body_exited" from="ExchangeDetector" to="." method="_on_ExchangeDetector_body_exited"]
 [connection signal="body_entered" from="ConnectionDetector" to="." method="_on_ConnectionDetector_body_entered"]
