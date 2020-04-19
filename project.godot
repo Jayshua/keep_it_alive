@@ -19,6 +19,10 @@ config/name="Keep it Alive"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 move_up={
@@ -48,6 +52,7 @@ move_right={
 2d_physics/layer_2="Current"
 2d_physics/layer_3="Surface"
 2d_physics/layer_4="Ship"
+2d_physics/layer_5="ConnectionRange"
 
 [rendering]
 

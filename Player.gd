@@ -43,7 +43,7 @@ func _physics_process(delta):
 			if current.get_parent().needs_oxygen():
 				current.get_parent().give_oxygen(TRANSFER_RATE)
 				player_oxygen -= TRANSFER_RATE
-		else:
+		elif current.get_collision_layer_bit(1):
 			in_current = true
 			velocity += current.get_force_vector()
 
