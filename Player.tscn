@@ -1,10 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://sprites/sub.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
 [ext_resource path="res://Light.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -6.733, -9.87256, -5.18635, -11.2373, -7.75306, -12.7308, -0.897612, -14.2162, 6.03409, -12.6829, 4.18453, -10.8734, 9.00646, -8.05302, 5.54925, -5.77852, 6.3681, 6.32174, 9.18847, 6.77663, 9.18848, 9.14209, 4.36657, 10.4158, 6.18617, 12.7813, -1.27414, 15.6017, -7.64271, 12.6904, -5.45921, 11.1437, -10.1901, 9.23314, -10.0082, 6.68572, -7.64273, 6.50375, -7.64277, -5.2326, -10.8271, -8.05295 )
+
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 8.40188
 height = 16.6122
 
@@ -21,9 +24,14 @@ offset = Vector2( 0, 825.963 )
 energy = 1.5
 shadow_enabled = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( 0.428223, 0.856445 )
+rotation = 1.5708
+occluder = SubResource( 1 )
+
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708
@@ -39,4 +47,4 @@ collision_mask = 15
 
 [node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea"]
 rotation = 1.5708
-shape = SubResource( 1 )
+shape = SubResource( 2 )
