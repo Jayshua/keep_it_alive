@@ -1,11 +1,10 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ship.tscn" type="PackedScene" id=4]
 [ext_resource path="res://WorldEnvironment.gd" type="Script" id=5]
-[ext_resource path="res://sprites/ship.png" type="Texture" id=8]
-[ext_resource path="res://Ship.gd" type="Script" id=9]
 [ext_resource path="res://Main.gd" type="Script" id=10]
 [ext_resource path="res://OxygenCLI.gd" type="Script" id=11]
 [ext_resource path="res://fonts/whitrabt.ttf" type="DynamicFontData" id=12]
@@ -46,15 +45,6 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[sub_resource type="CircleShape2D" id=9]
-radius = 16.6339
-
-[sub_resource type="CircleShape2D" id=10]
-radius = 9.19228
-
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 144, 80 )
-
 [sub_resource type="Environment" id=12]
 background_mode = 4
 glow_enabled = true
@@ -76,7 +66,7 @@ script = ExtResource( 10 )
 position = Vector2( 448, 272 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 4
+frame = 5
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -84,35 +74,7 @@ position = Vector2( 557.685, 279.176 )
 rotation = 3.03626
 scale = Vector2( 0.2, 0.2 )
 
-[node name="Ship" type="Node2D" parent="."]
-position = Vector2( 522.243, 297.506 )
-script = ExtResource( 9 )
-
-[node name="Sprite" type="Sprite" parent="Ship"]
-rotation = -0.0653258
-scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 8 )
-
-[node name="ExchangeDetector" type="Area2D" parent="Ship"]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/ExchangeDetector"]
-position = Vector2( 2.13147, 1.0231 )
-shape = SubResource( 9 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ship"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/StaticBody2D"]
-position = Vector2( 1.53461, 1.87567 )
-shape = SubResource( 10 )
-
-[node name="ConnectionDetector" type="Area2D" parent="Ship"]
-collision_layer = 0
-collision_mask = 16
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/ConnectionDetector"]
-position = Vector2( 5.75702, -41.506 )
-shape = SubResource( 11 )
+[node name="Ship" parent="." instance=ExtResource( 4 )]
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
@@ -134,7 +96,3 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="Ship/ExchangeDetector" to="Ship" method="_on_ExchangeDetector_body_entered"]
-[connection signal="body_exited" from="Ship/ExchangeDetector" to="Ship" method="_on_ExchangeDetector_body_exited"]
-[connection signal="body_entered" from="Ship/ConnectionDetector" to="Ship" method="_on_ConnectionDetector_body_entered"]
-[connection signal="body_exited" from="Ship/ConnectionDetector" to="Ship" method="_on_ConnectionDetector_body_exited"]
