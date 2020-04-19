@@ -9,14 +9,14 @@ onready var shipConnectionRange: Area2D = $"../../Ship/ConnectionDetector"
 func _process(delta):
 	var exchanging = shipExchange.overlaps_body(player)
 	var connected = shipConnectionRange.overlaps_body(player)
-	var player_oxygen = player.get_oxygen()
+	var player_oxygen = player.player_oxygen
 	var ship_oxygen = ship.oxygen
 	self.text = "> oxygen: " + _percentage(player_oxygen)
 
 	if connected:
-		self.text += "\n> pod: " + _percentage((ship_oxygen / 50) * 100)
+		self.text += "\n> pod oxygen: " + _percentage((ship_oxygen / 50) * 100)
 	else:
-		self.text += "\n> pod: connection lost"
+		self.text += "\n> pod oxygen: connection lost"
 
 	if exchanging:
 		self.text += "\n> transferring oxygen"

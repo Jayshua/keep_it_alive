@@ -1,12 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://sprites/o2_indicator_empty.png" type="Texture" id=4]
 [ext_resource path="res://WorldEnvironment.gd" type="Script" id=5]
-[ext_resource path="res://sprites/o2_indicator_full.png" type="Texture" id=6]
-[ext_resource path="res://TextureProgress.gd" type="Script" id=7]
 [ext_resource path="res://sprites/ship.png" type="Texture" id=8]
 [ext_resource path="res://Ship.gd" type="Script" id=9]
 [ext_resource path="res://Main.gd" type="Script" id=10]
@@ -79,7 +76,7 @@ script = ExtResource( 10 )
 position = Vector2( 448, 272 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 3
+frame = 4
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -118,30 +115,13 @@ position = Vector2( 5.75702, -41.506 )
 shape = SubResource( 13 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
-position = Vector2( -0.302704, -0.908051 )
+position = Vector2( 0, 0 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 11 )
 script = ExtResource( 5 )
 
 [node name="UI" type="CanvasLayer" parent="."]
-
-[node name="TextureProgress" type="TextureProgress" parent="UI"]
-visible = false
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 80.0
-margin_bottom = 80.0
-value = 100.0
-texture_under = ExtResource( 4 )
-texture_progress = ExtResource( 6 )
-fill_mode = 4
-radial_initial_angle = 252.8
-radial_fill_degrees = 285.2
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Label" type="Label" parent="UI"]
 margin_left = 16.0
@@ -154,7 +134,6 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="oxygen_change" from="Player" to="UI/TextureProgress" method="_on_Player_oxygen_change"]
 [connection signal="body_entered" from="Ship/ExchangeDetector" to="Ship" method="_on_ExchangeDetector_body_entered"]
 [connection signal="body_exited" from="Ship/ExchangeDetector" to="Ship" method="_on_ExchangeDetector_body_exited"]
 [connection signal="body_entered" from="Ship/ConnectionDetector" to="Ship" method="_on_ConnectionDetector_body_entered"]

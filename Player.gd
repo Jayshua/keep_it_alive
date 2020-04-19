@@ -4,17 +4,13 @@ const FRICTION = 0.98
 const ACCELERATION = 1
 const MAX_MOVEMENT_SPEED = 40
 const MAX_CURRENT_SPEED = 1000
-const OXYGEN_USAGE = 0.05
+const OXYGEN_USAGE = 0.01
 const MAX_OXYGEN = 100
-const TRANSFER_RATE = 0.1
-
-signal oxygen_change(oxygen)
+const TRANSFER_RATE = 0.15
 
 var velocity = Vector2(0, 0)
 var player_oxygen = 100
 
-func get_oxygen():
-	return player_oxygen
 
 func _physics_process(delta):
 	var moving = false
@@ -59,7 +55,6 @@ func _physics_process(delta):
 	if moving:
 		player_oxygen -= OXYGEN_USAGE
 
-	emit_signal("oxygen_change", player_oxygen)
 
 
 
