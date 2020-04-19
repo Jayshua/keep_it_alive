@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://audio/Darkness.ogg" type="AudioStream" id=6]
 [ext_resource path="res://AudioStreamPlayer.gd" type="Script" id=7]
 [ext_resource path="res://audio/Subsurface.ogg" type="AudioStream" id=8]
+[ext_resource path="res://sprites/fish.png" type="Texture" id=9]
 [ext_resource path="res://Main.gd" type="Script" id=10]
 [ext_resource path="res://OxygenCLI.gd" type="Script" id=11]
 [ext_resource path="res://fonts/whitrabt.ttf" type="DynamicFontData" id=12]
@@ -65,6 +66,63 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 5.60156, 13.7058 )
 
+[sub_resource type="Curve2D" id=12]
+_data = {
+"points": PoolVector2Array( 17.1328, -5.06991, -17.1328, 5.06991, 170.808, 31.8221, 0, 0, 0, 0, 164.478, 22.8477, 0, 0, 0, 0, 181.388, 20.2026, 0, 0, 0, 0, 204.911, 25.4928, 0, 0, 0, 0, 191.307, 33.2392, 0, 0, 0, 0, 162.117, 36.4511, 0, 0, 0, 0, 159.566, 25.1149, 0, 0, 0, 0, 175.814, 18.5021, 0, 0, 0, 0, 211.051, 24.737, 0, 0, 0, 0, 193.197, 36.4511, 0, 0, 0, 0, 164.006, 36.2621, 0, 0, 0, 0, 153.048, 30.2162, 0, 0, 0, 0, 167.879, 20.297, 0, 0, 0, 0, 191.496, 21.9975, 0, 0, 0, 0, 208.5, 32.2, 0, 0, 0, 0, 169.58, 41.08, 0, 0, 0, 0, 154.937, 42.3081, 4.72026, -9.79017, -4.72026, 9.79017, 146.037, 50.7202, 0, 0, 0, 0, 139.103, 95.1025, 0, 0, 0, 0, 135.497, 148.084, -2.97201, -9.96499, 2.97201, 9.96499, 134.11, 209.664, -9.09087, 1.04895, 9.09087, -1.04895, 156.578, 218.818, -10.6643, 2.44754, 10.6643, -2.44754, 192.916, 213.825, -9.79017, 1.3986, 9.79017, -1.3986, 237.298, 203.839, -10.4895, 1.57342, 10.4895, -1.57342, 261.154, 202.73, -10.8391, 1.57342, 10.8391, -1.57342, 287.506, 194.408, -16.6083, 0.874122, 16.6083, -0.874122, 320.793, 190.524, -11.5384, -0.874122, 11.5384, 0.874122, 361.291, 186.641, -4.72026, -0.524473, 4.72026, 0.524473, 388.753, 191.911, -4.37061, 1.57342, 4.37061, -1.57342, 411.222, 190.247, -0.874122, 3.32166, 0.874122, -3.32166, 417.602, 183.312, 0, 0, 0, 0, 413.163, 161.676, 5.59438, 8.04192, -5.59438, -8.04192, 393.746, 103.147, 0, 0, 0, 0, 372.11, 80.1235, 3.14684, 8.39157, -3.14684, -8.39157, 359.904, 59.0419, -5.41956, 5.41956, 5.41956, -5.41956, 359.627, 32.69, -1.74824, 7.34262, 1.74824, -7.34262, 373.497, 21.8718, 0, 0, 0, 0, 357.408, 18.2657, -0.174824, -5.59438, 0.174824, 5.59438, 350.196, 23.8135, 0, 0, 0, 0, 359.35, 25.2005, 0, 0, 0, 0, 369.985, 24.6524, 0, 0, 0, 0, 377.207, 18.9581, 0, 0, 0, 0, 370.124, 17.222, 0, 0, 0, 0, 354.152, 17.3609, 0, 0, 0, 0, 348.11, 23.6802, 0, 0, 0, 0, 348.597, 33.3328, 0, 0, 0, 0, 353.666, 41.5965, 0, 0, 0, 0, 364.36, 40.7631, 0, 0, 0, 0, 370.332, 34.1661, 0, 0, 0, 0, 374.707, 23.8191, 0, 0, 0, 0, 372.902, 19.4442, 0, 0, 0, 0, 362.763, 19.6525, 0, 0, 0, 0, 352.971, 23.4719, 0, 0, 0, 0, 351.583, 32.3606, 0, 0, 0, 0, 355.958, 37.0827, 0, 0, 0, 0, 363.943, 37.291, 0, 0, 0, 0, 371.652, 23.4719, 0, 0, 0, 0, 365.471, 21.7358, 0, 0, 0, 0, 355.194, 26.3885, 0, 0, 0, 0, 354.777, 33.3328, 0, 0, 0, 0, 362.902, 34.7216 )
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "FollowPath"
+length = 80.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40, 80 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.999997, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Fish:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 180.0 ]
+}
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 9 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 9 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 9 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
@@ -105,7 +163,7 @@ position = Vector2( 624, 272 )
 position = Vector2( -8, 2 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 1
+frame = 5
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Node2D"]
@@ -113,6 +171,7 @@ position = Vector2( -8, 18 )
 rotation = -3.14159
 frames = SubResource( 10 )
 animation = "idle"
+frame = 4
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
@@ -139,3 +198,23 @@ player_path = NodePath("../Player")
 off_volume = -60
 on_volume = -20
 end_depth = 300.0
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 12 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 356.829, 41.4768 )
+rotation = -0.0639596
+offset = 1093.33
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
+anims/FollowPath = SubResource( 18 )
+
+[node name="Fish" type="Node2D" parent="Path2D/PathFollow2D"]
+rotation = 3.14159
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D/Fish"]
+scale = Vector2( 0.186705, 0.186705 )
+frames = SubResource( 17 )
+frame = 3
+playing = true
