@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Subsurface.ogg-e5e30360542ca33076209bd31671d684.oggstr"
+
+[deps]
+
+source_file="res://audio/Subsurface.ogg"
+dest_files=[ "res://.import/Subsurface.ogg-e5e30360542ca33076209bd31671d684.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

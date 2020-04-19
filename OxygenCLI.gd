@@ -11,7 +11,10 @@ func _process(delta):
 	var connected = shipConnectionRange.overlaps_body(player)
 	var player_oxygen = player.player_oxygen
 	var ship_oxygen = ship.oxygen
-	self.text = "> oxygen: " + _percentage(player_oxygen)
+
+	self.text = String(player.position.y)
+
+	self.text += "> oxygen: " + _percentage(player_oxygen)
 
 	if player.player_oxygen <= 30:
 		self.text += "\n> o2 burst: not enough oxygen"
