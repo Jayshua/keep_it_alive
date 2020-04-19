@@ -52,10 +52,10 @@ radius = 16.6339
 [sub_resource type="CircleShape2D" id=10]
 radius = 9.19228
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 144, 80 )
 
-[sub_resource type="Environment" id=11]
+[sub_resource type="Environment" id=12]
 background_mode = 4
 glow_enabled = true
 glow_intensity = 0.0
@@ -65,7 +65,7 @@ glow_blend_mode = 1
 glow_hdr_threshold = 0.17
 adjustment_enabled = true
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=13]
 size = 20
 font_data = ExtResource( 12 )
 
@@ -76,7 +76,7 @@ script = ExtResource( 10 )
 position = Vector2( 448, 272 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 4
+frame = 1
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -112,13 +112,13 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/ConnectionDetector"]
 position = Vector2( 5.75702, -41.506 )
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 11 )
+environment = SubResource( 12 )
 script = ExtResource( 5 )
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -128,7 +128,7 @@ margin_left = 16.0
 margin_top = 16.0
 margin_right = 134.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
 text = "> oxygen: 29%"
 script = ExtResource( 11 )
 __meta__ = {
