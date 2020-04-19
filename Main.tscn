@@ -79,7 +79,7 @@ script = ExtResource( 10 )
 position = Vector2( 448, 272 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -118,7 +118,7 @@ position = Vector2( 5.75702, -41.506 )
 shape = SubResource( 13 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
-position = Vector2( 0, 0 )
+position = Vector2( -0.302704, -0.908051 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 11 )
