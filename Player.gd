@@ -65,8 +65,9 @@ func _physics_process(delta):
 			in_current = true
 			velocity += current.get_force_vector()
 		elif current.get_collision_layer_bit(5):
-			current.get_parent().queue_free()
-			has_item = true
+			if not has_item:
+				current.get_parent().queue_free()
+				has_item = true
 
 	var max_speed
 	if in_current:
@@ -96,9 +97,9 @@ func _physics_process(delta):
 
 	if moving:
 		player_oxygen -= OXYGEN_USAGE
-		engine_sound_target = -7
+		engine_sound_target = -15
 	else:
-		engine_sound_target = -18
+		engine_sound_target = -29
 	
 	if engine_sound > engine_sound_target:
 		engine_sound -= 0.5
