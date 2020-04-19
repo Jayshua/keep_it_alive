@@ -1,9 +1,15 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://sprites/o2_indicator_empty.png" type="Texture" id=4]
 [ext_resource path="res://WorldEnvironment.gd" type="Script" id=5]
+[ext_resource path="res://sprites/o2_indicator_full.png" type="Texture" id=6]
+[ext_resource path="res://TextureProgress.gd" type="Script" id=7]
+[ext_resource path="res://sprites/ship.png" type="Texture" id=8]
+[ext_resource path="res://Ship.gd" type="Script" id=9]
+[ext_resource path="res://Main.gd" type="Script" id=10]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 2 )
@@ -41,7 +47,13 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[sub_resource type="Environment" id=10]
+[sub_resource type="CircleShape2D" id=9]
+radius = 16.6339
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 9.19228
+
+[sub_resource type="Environment" id=11]
 background_mode = 4
 glow_enabled = true
 glow_intensity = 0.0
@@ -52,22 +64,82 @@ glow_hdr_threshold = 0.17
 adjustment_enabled = true
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 10 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 448, 272 )
 frames = SubResource( 8 )
 animation = "idle"
-frame = 3
+frame = 4
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 299.168, 520.087 )
+position = Vector2( 557.685, 279.176 )
 rotation = 3.03626
 scale = Vector2( 0.2, 0.2 )
+
+[node name="Ship" type="Node2D" parent="."]
+position = Vector2( 522.243, 297.506 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="Sprite" parent="Ship"]
+rotation = -0.0653258
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 8 )
+
+[node name="TextureProgress2" type="TextureProgress" parent="Ship"]
+margin_left = -11.6846
+margin_top = -9.62817
+margin_right = 52.3154
+margin_bottom = 54.3718
+rect_scale = Vector2( 0.1, 0.1 )
+max_value = 50.0
+value = 50.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 6 )
+fill_mode = 4
+radial_initial_angle = 252.8
+radial_fill_degrees = 285.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D" type="Area2D" parent="Ship"]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/Area2D"]
+position = Vector2( 2.13147, 1.0231 )
+shape = SubResource( 9 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Ship"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ship/StaticBody2D"]
+position = Vector2( 1.53461, 1.87567 )
+shape = SubResource( 10 )
 
 [node name="Map" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 0 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 10 )
+environment = SubResource( 11 )
 script = ExtResource( 5 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TextureProgress" type="TextureProgress" parent="UI"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 80.0
+margin_bottom = 80.0
+value = 100.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 6 )
+fill_mode = 4
+radial_initial_angle = 252.8
+radial_fill_degrees = 285.2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="oxygen_change" from="Player" to="UI/TextureProgress" method="_on_Player_oxygen_change"]

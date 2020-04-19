@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
@@ -25,6 +25,9 @@ extents = Vector2( 17.9231, 22.4854 )
 
 [sub_resource type="RectangleShape2D" id=51]
 extents = Vector2( 27.3177, 22.4854 )
+
+[sub_resource type="RectangleShape2D" id=52]
+extents = Vector2( 528, 32 )
 
 [node name="Map" type="Node2D"]
 position = Vector2( 38.9882, 55.5286 )
@@ -130,3 +133,12 @@ forceMagnitude = 10.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Current8"]
 rotation = 0.0709569
 shape = SubResource( 51 )
+
+[node name="Surface" type="Area2D" parent="."]
+position = Vector2( 489.012, -23.5286 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Surface"]
+position = Vector2( 0, 11.9408 )
+shape = SubResource( 52 )
