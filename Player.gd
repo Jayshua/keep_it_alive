@@ -65,8 +65,9 @@ func _physics_process(delta):
 			in_current = true
 			velocity += current.get_force_vector()
 		elif current.get_collision_layer_bit(5):
-			current.get_parent().queue_free()
-			has_item = true
+			if not has_item:
+				current.get_parent().queue_free()
+				has_item = true
 
 	var max_speed
 	if in_current:
@@ -79,12 +80,11 @@ func _physics_process(delta):
 	if velocity.length() > max_speed:
 		velocity *= 0.85
 
-	print(velocity)
-
 	self.move_and_slide(velocity)
 
 	for index in range(0, self.get_slide_count()):
 		var collision = self.get_slide_collision(index)
+		print(collision.collider_velocity)
 		if velocity.length() > 3:
 			velocity = -velocity * 0.95
 		if velocity.length() > 10:
@@ -96,9 +96,9 @@ func _physics_process(delta):
 
 	if moving:
 		player_oxygen -= OXYGEN_USAGE
-		engine_sound_target = -7
+		engine_sound_target = -27
 	else:
-		engine_sound_target = -18
+		engine_sound_target = -35
 	
 	if engine_sound > engine_sound_target:
 		engine_sound -= 0.5
