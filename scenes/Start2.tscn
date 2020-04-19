@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://TypeText.gd" type="Script" id=1]
 [ext_resource path="res://fonts/whitrabt.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://scenes/ChangeSceneOnSpace.gd" type="Script" id=3]
+[ext_resource path="res://scenes/PanelStyle.tres" type="StyleBox" id=3]
 [ext_resource path="res://Main.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/press space to continue.tscn" type="PackedScene" id=5]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "time"
@@ -67,11 +68,9 @@ font_data = ExtResource( 2 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-scene = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="."]
 material = SubResource( 5 )
@@ -79,6 +78,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
+custom_styles/panel = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -105,3 +105,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="press space to continue" parent="Panel" instance=ExtResource( 5 )]
+scene = ExtResource( 4 )

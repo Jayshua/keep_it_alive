@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://fonts/whitrabt.tres" type="DynamicFont" id=1]
+[ext_resource path="res://scenes/ChangeSceneOnSpace.gd" type="Script" id=2]
+
+[node name="press space to continue" type="Label"]
+anchor_right = 0.95
+anchor_bottom = 0.95
+custom_fonts/font = ExtResource( 1 )
+text = "press space to continue"
+align = 2
+valign = 2
+script = ExtResource( 2 )
