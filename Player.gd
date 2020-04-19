@@ -13,10 +13,11 @@ const BURST_ACCELERATION = 100
 var velocity = Vector2(0, 0)
 var player_oxygen = 100
 var has_item = false
-var burst_cooldown = 0
+var burst_cooldown = 5
 
 var engine_sound = -30
 var engine_sound_target = 0
+var was_above_water = false
 
 func _physics_process(delta):
 	var moving = false
@@ -50,8 +51,10 @@ func _physics_process(delta):
 	burst_cooldown -= 1 * delta
 
 	var in_current = false
+	var above_water = false
 	for current in $DetectionArea.get_overlapping_areas():
 		if (current as Area2D).get_collision_layer_bit(2):
+			above_water = true
 			player_oxygen = clamp(player_oxygen + 1, 0, MAX_OXYGEN)
 		elif (current as Area2D).get_collision_layer_bit(3):
 			if current.get_parent().needs_oxygen():
@@ -74,11 +77,24 @@ func _physics_process(delta):
 		max_speed = MAX_CURRENT_SPEED
 	elif burst_cooldown > 3:
 		max_speed = MAX_BURST_SPEED
+	elif above_water:
+		max_speed = MAX_CURRENT_SPEED
 	else:
 		max_speed = MAX_MOVEMENT_SPEED
 
 	if velocity.length() > max_speed:
 		velocity *= 0.85
+
+	if above_water:
+		velocity += Vector2.DOWN * ACCELERATION * 2
+
+	if above_water and not was_above_water:
+		$SurfacingSound.play_once(1)
+		was_above_water = true
+
+	if not above_water and was_above_water:
+		$SurfacingSound.play_once(1)
+		was_above_water = false
 
 	self.move_and_slide(velocity)
 

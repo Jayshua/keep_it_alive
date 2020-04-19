@@ -12,9 +12,7 @@ func _process(delta):
 	var player_oxygen = player.player_oxygen
 	var ship_oxygen = ship.oxygen
 
-	self.text = String(player.position.y)
-
-	self.text += "> oxygen: " + _percentage(player_oxygen)
+	self.text = "> oxygen: " + _percentage(player_oxygen)
 
 	if player.player_oxygen <= 30:
 		self.text += "\n> o2 burst: not enough oxygen"
@@ -23,12 +21,8 @@ func _process(delta):
 	else:
 		self.text += "\n> o2 burst: ready"
 
-	if connected:
-		self.text += "\n> pod oxygen: " + _percentage((ship_oxygen / 50) * 100)
-		self.text += "\n> pod status: " + String(ship.item_count) + "/" + String(ship.MISSING_ITEMS)
-
-	else:
-		self.text += "\n> pod: connection lost"
+	self.text += "\n> pod oxygen: " + _percentage((ship_oxygen / 50) * 100)
+	self.text += "\n> pod status: " + String(ship.item_count) + "/" + String(ship.MISSING_ITEMS)
 
 	if exchanging:
 		self.text += "\n> transferring oxygen"

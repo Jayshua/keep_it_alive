@@ -166,7 +166,7 @@ position = Vector2( 574.009, 99.5403 )
 occluder = SubResource( 10 )
 
 [node name="Surface" type="Area2D" parent="."]
-position = Vector2( 489.012, -23.5286 )
+position = Vector2( 489.012, -27.3811 )
 collision_layer = 4
 collision_mask = 4
 
