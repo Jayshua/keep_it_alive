@@ -79,15 +79,24 @@ func _physics_process(delta):
 	if velocity.length() > max_speed:
 		velocity *= 0.85
 
-	velocity *= FRICTION
+	print(velocity)
 
 	self.move_and_slide(velocity)
+
+	for index in range(0, self.get_slide_count()):
+		var collision = self.get_slide_collision(index)
+		if velocity.length() > 3:
+			velocity = -velocity * 0.95
+		if velocity.length() > 10:
+			$CollisionSound.play_once()
+
+	velocity *= FRICTION
 
 	self.rotation = velocity.angle()
 
 	if moving:
 		player_oxygen -= OXYGEN_USAGE
-		engine_sound_target = -5
+		engine_sound_target = -7
 	else:
 		engine_sound_target = -18
 	

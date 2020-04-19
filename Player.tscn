@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/Submarine.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://audio/Bubbles.wav" type="AudioStream" id=5]
 [ext_resource path="res://sprites/explosion.png" type="Texture" id=6]
 [ext_resource path="res://audio/Machine.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/Collide.ogg" type="AudioStream" id=8]
+[ext_resource path="res://PlayFx.gd" type="Script" id=9]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -6.733, -9.87256, -5.18635, -11.2373, -7.75306, -12.7308, -0.897612, -14.2162, 6.03409, -12.6829, 4.18453, -10.8734, 9.00646, -8.05302, 5.54925, -5.77852, 6.3681, 6.32174, 9.18847, 6.77663, 9.18848, 9.14209, 4.36657, 10.4158, 6.18617, 12.7813, -1.27414, 15.6017, -7.64271, 12.6904, -5.45921, 11.1437, -10.1901, 9.23314, -10.0082, 6.68572, -7.64273, 6.50375, -7.64277, -5.2326, -10.8271, -8.05295 )
@@ -80,7 +82,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = ExtResource( 1 )
-frame = 4
+frame = 2
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -127,3 +129,10 @@ autoplay = true
 stream = ExtResource( 7 )
 volume_db = -50.921
 autoplay = true
+
+[node name="CollisionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = 3.74
+pitch_scale = 0.7
+script = ExtResource( 9 )
+[connection signal="finished" from="CollisionSound" to="CollisionSound" method="_on_CollisionSound_finished"]
