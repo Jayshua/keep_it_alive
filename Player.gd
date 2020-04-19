@@ -10,6 +10,7 @@ const TRANSFER_RATE = 0.15
 
 var velocity = Vector2(0, 0)
 var player_oxygen = 100
+var has_item = false
 
 
 func _physics_process(delta):
@@ -39,11 +40,16 @@ func _physics_process(delta):
 			if current.get_parent().needs_oxygen():
 				current.get_parent().give_oxygen(TRANSFER_RATE)
 				player_oxygen -= TRANSFER_RATE
+			
+			if has_item:
+				current.get_parent().give_item()
+				has_item = false
 		elif current.get_collision_layer_bit(1):
 			in_current = true
 			velocity += current.get_force_vector()
-		elif current.get_collision_layer_bit(4):
-			print("Take")
+		elif current.get_collision_layer_bit(5):
+			current.get_parent().queue_free()
+			has_item = true
 
 	if velocity.length() > (MAX_CURRENT_SPEED if in_current else MAX_MOVEMENT_SPEED):
 		velocity *= 0.85

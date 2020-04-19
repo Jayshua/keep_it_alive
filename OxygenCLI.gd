@@ -15,11 +15,15 @@ func _process(delta):
 
 	if connected:
 		self.text += "\n> pod oxygen: " + _percentage((ship_oxygen / 50) * 100)
+		self.text += "\n> pod status: " + String(ship.item_count) + "/" + String(ship.MISSING_ITEMS)
 	else:
-		self.text += "\n> pod oxygen: connection lost"
+		self.text += "\n> pod: connection lost"
 
 	if exchanging:
 		self.text += "\n> transferring oxygen"
+	
+	if player.has_item:
+		self.text += "\n> cargo: pod fragment"
 
 func _percentage(value):
 	return String(int(value)) + "%"

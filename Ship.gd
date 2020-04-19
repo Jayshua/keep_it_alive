@@ -2,12 +2,14 @@ extends Node2D
 
 const MAX_OXYGEN = 50
 const LEAK_RATE = 1.2
+const MISSING_ITEMS = 6
 
 signal player_connection_change(is_connected)
 signal player_exchange_range(is_in_range)
 signal oxygen_change(amount)
 
 var oxygen = MAX_OXYGEN
+var item_count = 0
 
 func _process(delta):
 	_apply_oxygen(LEAK_RATE * delta)
@@ -17,6 +19,9 @@ func needs_oxygen():
 
 func give_oxygen(amount):
 	_apply_oxygen(-amount)
+
+func give_item():
+	item_count += 1
 
 func get_oxygen():
 	return oxygen
