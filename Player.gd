@@ -84,11 +84,12 @@ func _physics_process(delta):
 
 	for index in range(0, self.get_slide_count()):
 		var collision = self.get_slide_collision(index)
-		print(collision.collider_velocity)
+
 		if velocity.length() > 3:
 			velocity = -velocity * 0.95
+
 		if velocity.length() > 10:
-			$CollisionSound.play_once()
+			$CollisionSound.play_once(collision.remainder.length())
 
 	velocity *= FRICTION
 

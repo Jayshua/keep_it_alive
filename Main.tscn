@@ -105,7 +105,7 @@ position = Vector2( 624, 272 )
 position = Vector2( -8, 2 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 6
+frame = 4
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Node2D"]
@@ -113,7 +113,7 @@ position = Vector2( -8, 18 )
 rotation = -3.14159
 frames = SubResource( 10 )
 animation = "idle"
-frame = 5
+frame = 3
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
@@ -128,7 +128,7 @@ volume_db = -50.0
 script = ExtResource( 7 )
 player_path = NodePath("../Player")
 off_volume = -60
-on_volume = -25
+on_volume = -22
 begin_depth = 400.0
 end_depth = 900.0
 
