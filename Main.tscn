@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Map.tscn" type="PackedScene" id=1]
 [ext_resource path="res://sprites/seaweed.png" type="Texture" id=2]
@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ 0.0, 0.999997, 0.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Fish:rotation_degrees")
+tracks/1/path = NodePath("AnimatedSprite:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -123,11 +123,44 @@ animations = [ {
 "speed": 3.0
 } ]
 
+[sub_resource type="Curve2D" id=19]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 335.207, 68.1509, 0, 0, 0, 0, 324.814, 67.6991, 0, 0, 0, 0, 313.744, 60.4691, 0, 0, 0, 0, 316.907, 47.5908, 0, 0, 0, 0, 329.559, 43.2981, 0, 0, 0, 0, 341.76, 49.8502, 0, 0, 0, 0, 349.893, 60.6951, 0, 0, 0, 0, 368.42, 62.5026, 0, 0, 0, 0, 372.713, 45.5574, 0, 0, 0, 0, 359.608, 34.2607, 0, 0, 0, 0, 330.463, 31.7754, 0, 0, 0, 0, 333.174, 16.1858, 0, 0, 0, 0, 341.985, 5.7928, 0, 0, 0, 0, 372.939, 2.17784, 0, 0, 0, 0, 391.239, 25.901, 0, 0, 0, 0, 393.499, 53.917, 0, 0, 0, 0, 386.947, 72.4437, 0, 0, 0, 0, 367.064, 77.6402, 0, 0, 0, 0, 358.705, 98.4262, 0, 0, 0, 0, 360.286, 113.564, 0, 0, 0, 0, 377.232, 121.472, 0, 0, 0, 0, 381.75, 131.413, 0, 0, 0, 0, 374.068, 139.094, 0, 0, 0, 0, 363.675, 149.487, 0, 0, 0, 0, 367.516, 167.11, 0, 0, 0, 0, 368.646, 191.737, 0, 0, 0, 0, 360.286, 203.712, 0, 0, 0, 0, 347.634, 217.042, 0, 0, 0, 0, 327.3, 222.013, 0, 0, 0, 0, 309.225, 219.301, 0, 0, 0, 0, 289.117, 211.168, 0, 0, 0, 0, 276.916, 196.256, 0, 0, 0, 0, 266.749, 184.733, 0, 0, 0, 0, 256.808, 174.114, 0, 0, 0, 0, 251.837, 149.036, 0, 0, 0, 0, 252.063, 133.672, 0, 0, 0, 0, 250.482, 107.238, 0, 0, 0, 0, 250.03, 80.3513, 0, 0, 0, 0, 237.146, 42.8562, 0, 0, 0, 0, 225.341, 15.1678, 0, 0, 0, 0, 217.185, 1.6456, 0, 0, 0, 0, 228.131, -16.8133, 0, 0, 0, 0, 242.942, -41.2821, 0, 0, 0, 0, 252.171, -59.5264, 0, 0, 0, 0, 262.045, -88.9318, 0, 0, 0, 0, 258.611, -112.757, 0, 0, 0, 0, 258.825, -138.728, 0, 0, 0, 0, 264.191, -150.318, 0, 0, 0, 0, 267.626, -160.836, 0, 0, 0, 0, 257.538, -164.699, 0, 0, 0, 0, 243.801, -164.699, 0, 0, 0, 0, 240.581, -158.689, 0, 0, 0, 0, 244.659, -146.884, 0, 0, 0, 0, 252.386, -139.801, 0, 0, 0, 0, 264.835, -138.513, 0, 0, 0, 0, 268.913, -150.748, 0, 0, 0, 0, 263.977, -159.763, 0, 0, 0, 0, 254.962, -160.406, 0, 0, 0, 0, 247.879, -155.899, 0, 0, 0, 0, 248.094, -147.099, 0, 0, 0, 0, 257.538, -140.66, 0, 0, 0, 0, 266.767, -142.162, 0, 0, 0, 0, 265.694, -153.323, 0, 0, 0, 0, 259.899, -159.763, 0, 0, 0, 0, 248.952, -160.621, 0, 0, 0, 0, 243.586, -151.177, 0, 0, 0, 0, 247.664, -141.089, 0, 0, 0, 0, 260.543, -137.225, 0, 0, 0, 0, 264.621, -146.026, 0, 0, 0, 0, 262.474, -155.255, 0, 0, 0, 0, 256.464, -159.333, 0, 0, 0, 0, 245.732, -160.621, 0, 0, 0, 0, 244.659, -151.177, 0, 0, 0, 0, 255.391, -141.733, 0, 0, 0, 0, 266.767, -142.591, 0, 0, 0, 0, 269.557, -153.967, 0, 0, 0, 0, 254.103, -157.187, 0, 0, 0, 0, 248.952, -143.45 )
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "FollowPath"
+length = 80.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 40, 80 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.999997, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 40 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 180.0 ]
+}
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 10 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 557.685, 279.176 )
+position = Vector2( 164.277, 46.3158 )
 rotation = 3.03626
 scale = Vector2( 0.2, 0.2 )
 
@@ -163,7 +196,7 @@ position = Vector2( 624, 272 )
 position = Vector2( -8, 2 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 5
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="Node2D"]
@@ -171,7 +204,7 @@ position = Vector2( -8, 18 )
 rotation = -3.14159
 frames = SubResource( 10 )
 animation = "idle"
-frame = 4
+frame = 1
 playing = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
@@ -202,19 +235,34 @@ end_depth = 300.0
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource( 12 )
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( 356.829, 41.4768 )
-rotation = -0.0639596
-offset = 1093.33
+[node name="Fish" type="PathFollow2D" parent="Path2D"]
+position = Vector2( 165.685, 22.7162 )
+rotation = -0.185549
+offset = 19.8211
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/PathFollow2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D/Fish"]
 anims/FollowPath = SubResource( 18 )
 
-[node name="Fish" type="Node2D" parent="Path2D/PathFollow2D"]
-rotation = 3.14159
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D/Fish"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/Fish"]
 scale = Vector2( 0.186705, 0.186705 )
 frames = SubResource( 17 )
-frame = 3
+frame = 2
+playing = true
+
+[node name="Path2D2" type="Path2D" parent="."]
+position = Vector2( 535.768, 182.496 )
+curve = SubResource( 19 )
+
+[node name="Fish" type="PathFollow2D" parent="Path2D2"]
+position = Vector2( 342.587, 32.8092 )
+rotation = -3.05653
+offset = 144.231
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D2/Fish"]
+anims/FollowPath = SubResource( 20 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D2/Fish"]
+scale = Vector2( 0.186705, 0.186705 )
+frames = SubResource( 17 )
+frame = 1
 playing = true
