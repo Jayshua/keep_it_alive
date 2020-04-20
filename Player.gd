@@ -1,5 +1,8 @@
 extends KinematicBody2D
 
+export(NodePath) var sound_player_path
+onready var sound_player = get_node(sound_player_path)
+
 const FRICTION = 0.98
 const ACCELERATION = 1
 const MAX_MOVEMENT_SPEED = 40
@@ -20,13 +23,16 @@ var oxygen_tanks = 0
 var engine_sound = -30
 var engine_sound_target = 0
 var was_above_water = false
+var played_low_oxygen_sound = false
 
 func max_oxygen():
 	return BASE_OXYGEN + oxygen_tanks * OXYGEN_TANK_SIZE
 
+func oxygen_low():
+	return player_oxygen < 10
+
 func set_canister_count(new_count):
 	self.oxygen_tanks = new_count
-	print(new_count)
 	if new_count >= 1:
 		$Canister1.visible = true
 
@@ -74,7 +80,7 @@ func _physics_process(delta):
 			if current.get_parent().needs_oxygen():
 				current.get_parent().give_oxygen(TRANSFER_RATE)
 				player_oxygen -= TRANSFER_RATE
-			
+
 			if has_item:
 				current.get_parent().give_item()
 				has_item = false
@@ -86,9 +92,14 @@ func _physics_process(delta):
 			self.player_oxygen += OXYGEN_TANK_SIZE / 2
 			current.queue_free()
 		elif current.is_in_group("Item"):
-			if not has_item:
+			if has_item:
+				print("HERE")
+				sound_player.queue_sound($BayFullSound)
+			else:
 				current.queue_free()
+				sound_player.queue_sound($GetItemSounds.get_random_sound())
 				has_item = true
+
 		elif current.is_in_group("PathEntry"):
 			var path = current.get_parent() as Path2D
 			var follower = path.get_node("PathFollow2D") as PathFollow2D
@@ -123,8 +134,6 @@ func _physics_process(delta):
 		$SurfacingSound.play_once(1)
 		was_above_water = false
 
-	print(velocity.length())
-	print(MAX_MOVEMENT_SPEED)
 	if velocity.length() > MAX_MOVEMENT_SPEED:
 		self.set_collision_mask_bit(5, false)
 	else:
@@ -160,7 +169,11 @@ func _physics_process(delta):
 
 	$RadialLight.energy = lerp(0, 1.5, clamp(self.position.y - 380, 0, 300) / 200)
 
-
+	if oxygen_low() and not played_low_oxygen_sound:
+		played_low_oxygen_sound = true
+		sound_player.queue_sound($LowOxygenSounds.get_random_sound())
+	elif not oxygen_low() and played_low_oxygen_sound:
+		played_low_oxygen_sound = false
 
 
 

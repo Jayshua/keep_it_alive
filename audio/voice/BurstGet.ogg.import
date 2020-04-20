@@ -11,5 +11,5 @@ dest_files=[ "res://.import/BurstGet.ogg-950e16c4a37e4b51951636a32742d90e.oggstr
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

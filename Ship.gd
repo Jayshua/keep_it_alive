@@ -11,7 +11,7 @@ signal player_connection_change(is_connected)
 signal player_exchange_range(is_in_range)
 signal oxygen_change(amount)
 
-var oxygen = 11 # MAX_OXYGEN
+var oxygen = MAX_OXYGEN
 var item_count = 0
 var played_death_sound = false
 var unused_death_sounds = []

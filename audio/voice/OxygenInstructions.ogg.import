@@ -11,5 +11,5 @@ dest_files=[ "res://.import/OxygenInstructions.ogg-5915ad74770c299b2019ed811459e
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

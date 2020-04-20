@@ -11,5 +11,5 @@ dest_files=[ "res://.import/BayFull.ogg-2741ea6f1787cf0056ae2a240165d3ff.oggstr"
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

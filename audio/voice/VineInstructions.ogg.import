@@ -11,5 +11,5 @@ dest_files=[ "res://.import/VineInstructions.ogg-45a2e1ab5eda9d847a4e2114bd4c196
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

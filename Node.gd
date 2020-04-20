@@ -1,8 +1,8 @@
 extends Node
 
-const PLAY_FREQUENCY = 12000
+const PLAY_FREQUENCY = 60000
 var unused_sounds
-var last_played = 0 # OS.get_ticks_msec()
+var last_played = OS.get_ticks_msec()
 var current_sound = null
 var queued_sounds = []
 
@@ -11,7 +11,8 @@ func _ready():
 
 
 func queue_sound(sound):
-	queued_sounds.push_back(sound)
+	if not queued_sounds.has(sound) and current_sound != sound:
+		queued_sounds.push_back(sound)
 
 # Called when the node enters the scene tree for the first time.
 func _process(delta):
