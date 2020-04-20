@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/3.ogg-12a4d146f38902df9b18444ea6a380cb.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/PodDeath/3.ogg"
+dest_files=[ "res://.import/3.ogg-12a4d146f38902df9b18444ea6a380cb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

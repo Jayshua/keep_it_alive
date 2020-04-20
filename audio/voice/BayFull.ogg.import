@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/BayFull.ogg-2741ea6f1787cf0056ae2a240165d3ff.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/BayFull.ogg"
+dest_files=[ "res://.import/BayFull.ogg-2741ea6f1787cf0056ae2a240165d3ff.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

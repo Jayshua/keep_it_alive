@@ -96,7 +96,7 @@ custom_constants/line_spacing = 12
 text = "> startup sequence
 > year: 3091
 > recovering from unexpected shutdown
-> sutdown reason: failure to control uncontrolled descent
+> shutdown reason: failure to control uncontrolled descent
 > reboot reason: backup power activation
 > passenger status: stable, 2 of 3 legs broken, 4 of 8 digits missing
 > hull status: leaking oxygen

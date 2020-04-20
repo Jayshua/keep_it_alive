@@ -10,3 +10,6 @@ func _process(delta):
 	
 	if ship.oxygen <= 0:
 		get_tree().change_scene("res://scenes/GameOver.tscn")
+
+	if ship.item_count >= ship.MISSING_ITEMS:
+		get_tree().change_scene("res://scenes/GameWin.tscn")

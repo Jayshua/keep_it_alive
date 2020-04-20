@@ -12,7 +12,7 @@ func _process(delta):
 	var player_oxygen = player.player_oxygen
 	var ship_oxygen = ship.oxygen
 
-	self.text = "> oxygen: " + String(int(player.player_oxygen)) + "/" + String(int(player.max_oxygen()))
+	self.text = "> drone oxygen: " + String(int(player.player_oxygen)) + "/" + String(int(player.max_oxygen()))
 
 	if player.can_use_burst():
 		if player.player_oxygen <= player.BURST_OXYGEN_USAGE + 10:
@@ -23,7 +23,7 @@ func _process(delta):
 			self.text += "\n> o2 burst: ready (spacebar)"
 
 	self.text += "\n> pod oxygen: " + String(int(ship.oxygen)) + "/" + String(int(ship.MAX_OXYGEN))
-	self.text += "\n> pod status: " + String(ship.item_count) + "/" + String(ship.MISSING_ITEMS)
+	self.text += "\n> pod parts: " + String(ship.item_count) + "/" + String(ship.MISSING_ITEMS)
 
 	if exchanging:
 		self.text += "\n> transferring oxygen"

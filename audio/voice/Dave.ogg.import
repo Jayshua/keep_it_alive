@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dave.ogg-f56f87605fdae044bfb4f27f49a65787.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/Dave.ogg"
+dest_files=[ "res://.import/Dave.ogg-f56f87605fdae044bfb4f27f49a65787.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
