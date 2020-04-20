@@ -33,8 +33,11 @@ func oxygen_low():
 
 func set_canister_count(new_count):
 	self.oxygen_tanks = new_count
-	if new_count >= 1:
+
+	if new_count == 1:
 		sound_player.queue_sound($BurstGetSound)
+
+	if new_count >= 1:
 		$Canister1.visible = true
 
 	if new_count >= 2:
@@ -97,13 +100,13 @@ func _physics_process(delta):
 				sound_player.queue_sound($BayFullSound)
 			else:
 				current.queue_free()
-				sound_player.queue_sound($GetItemSounds.get_random_sound())
+				sound_player.play_if_free($GetItemSounds.get_random_sound())
 				has_item = true
 
 	for possible_blocker in $DetectionArea.get_overlapping_bodies():
 		if possible_blocker.is_in_group("Blocker"):
 			if velocity.length() <= MAX_MOVEMENT_SPEED:
-				sound_player.queue_sound($VineInstructionSound)
+				sound_player.play_if_free($VineInstructionSound)
 
 	var max_speed
 	if in_current:
