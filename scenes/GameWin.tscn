@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://fonts/whitrabt.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://TypeText.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Main.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/PanelStyle.tres" type="StyleBox" id=5]
 [ext_resource path="res://scenes/ClickPlayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/GameWin.gd" type="Script" id=7]
+[ext_resource path="res://audio/voice/Win.ogg" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
@@ -14,6 +16,7 @@ font_data = ExtResource( 1 )
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,3 +61,7 @@ __meta__ = {
 [node name="press space to continue" parent="Panel" instance=ExtResource( 3 )]
 text = "press space to play again"
 scene = ExtResource( 4 )
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+[connection signal="all_text_visible" from="Panel/Label" to="." method="_on_Label_all_text_visible"]

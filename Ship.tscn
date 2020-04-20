@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Ship.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ship.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://audio/voice/ShipDeath/3.ogg" type="AudioStream" id=5]
 [ext_resource path="res://audio/voice/ShipDeath/4.ogg" type="AudioStream" id=6]
 [ext_resource path="res://audio/voice/ShipDeath/2.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/voice/OxygenInstructions.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.6339
@@ -67,6 +68,9 @@ __meta__ = {
 }
 
 [node name="DeathSounds" type="Node" parent="."]
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 8 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DeathSounds"]
 stream = ExtResource( 4 )
