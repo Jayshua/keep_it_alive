@@ -6,13 +6,13 @@ const MAX_MOVEMENT_SPEED = 40
 const MAX_CURRENT_SPEED = 1000
 const MAX_BURST_SPEED = 1000
 const OXYGEN_USAGE = 0.01
-const BASE_OXYGEN = 60
+const BASE_OXYGEN = 40
 const TRANSFER_RATE = 0.15
 const BURST_OXYGEN_USAGE = 30
 const BURST_ACCELERATION = 100
 const OXYGEN_TANK_SIZE = 20
 
-var velocity = Vector2(0, 0)
+var velocity = Vector2(25, -25)
 var player_oxygen = BASE_OXYGEN
 var has_item = false
 var burst_cooldown = 5
