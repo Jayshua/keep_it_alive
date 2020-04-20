@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://TypeText.gd" type="Script" id=1]
 [ext_resource path="res://fonts/whitrabt.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/PanelStyle.tres" type="StyleBox" id=3]
 [ext_resource path="res://scenes/Start3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/press space to continue.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ClickPlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="VisualShaderNodeInput" id=1]
 input_name = "time"
@@ -105,6 +106,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" parent="Panel/Label" instance=ExtResource( 6 )]
 
 [node name="press space to continue" parent="Panel" instance=ExtResource( 5 )]
 scene = ExtResource( 4 )
