@@ -15,7 +15,7 @@ func _process(delta):
 	self.text = "> oxygen: " + String(int(player.player_oxygen)) + "/" + String(int(player.max_oxygen()))
 
 	if player.can_use_burst():
-		if player.player_oxygen <= 30:
+		if player.player_oxygen <= player.BURST_OXYGEN_USAGE + 10:
 			self.text += "\n> o2 burst: not enough oxygen"
 		elif player.burst_cooldown > 1:
 			self.text += "\n> o2 burst: charging"

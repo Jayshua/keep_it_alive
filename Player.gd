@@ -70,7 +70,7 @@ func _physics_process(delta):
 	for current in $DetectionArea.get_overlapping_areas():
 		if (current as Area2D).get_collision_layer_bit(2):
 			above_water = true
-			player_oxygen = clamp(player_oxygen + 1, 0, max_oxygen())
+			player_oxygen = max_oxygen()
 		elif (current as Area2D).get_collision_layer_bit(3):
 			if current.get_parent().needs_oxygen():
 				current.get_parent().give_oxygen(TRANSFER_RATE)
@@ -80,11 +80,12 @@ func _physics_process(delta):
 			velocity += current.get_force_vector()
 		elif current.is_in_group("Canister"):
 			self.set_canister_count(oxygen_tanks + 1)
+			self.player_oxygen += OXYGEN_TANK_SIZE / 2
 			current.queue_free()
 		elif current.is_in_group("Item"):
 			current.queue_free()
 			item_count += 1
-			player_oxygen += 10
+			player_oxygen += 7
 		elif current.is_in_group("PathEntry"):
 			var path = current.get_parent() as Path2D
 			var follower = path.get_node("PathFollow2D") as PathFollow2D
@@ -154,7 +155,7 @@ func _physics_process(delta):
 	
 	$RunningSound.volume_db = engine_sound
 
-
+	$RadialLight.energy = lerp(0, 1.5, clamp(self.position.y - 380, 0, 300) / 200)
 
 
 
