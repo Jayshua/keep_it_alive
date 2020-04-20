@@ -84,6 +84,7 @@ func _physics_process(delta):
 		elif current.is_in_group("Item"):
 			current.queue_free()
 			item_count += 1
+			player_oxygen += 10
 		elif current.is_in_group("PathEntry"):
 			var path = current.get_parent() as Path2D
 			var follower = path.get_node("PathFollow2D") as PathFollow2D

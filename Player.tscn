@@ -84,7 +84,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = ExtResource( 1 )
-frame = 8
+frame = 7
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -100,8 +100,8 @@ rotation = 1.5708
 shape = SubResource( 2 )
 
 [node name="Explosion" type="AnimatedSprite" parent="."]
-position = Vector2( 8.44157, 12.2629 )
-rotation = -0.811296
+position = Vector2( -28.1878, -0.386098 )
+rotation = -3.92699
 scale = Vector2( 4.8883, 5.04921 )
 frames = SubResource( 11 )
 frame = 7
