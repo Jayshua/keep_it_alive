@@ -8,7 +8,7 @@
 [ext_resource path="res://Fog.shader" type="Shader" id=6]
 [ext_resource path="res://sprites/angler.png" type="Texture" id=7]
 [ext_resource path="res://AnglerPath.gd" type="Script" id=8]
-[ext_resource path="res://Coral.png" type="Texture" id=9]
+[ext_resource path="res://sprites/Coral.png" type="Texture" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.184982, 1 )
@@ -42,29 +42,26 @@ extents = Vector2( 19.2746, 10.084 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 515.673, 32 )
 
-[sub_resource type="Curve2D" id=19]
+[sub_resource type="Curve2D" id=10]
 _data = {
-"points": PoolVector2Array( -64.835, 14.1716, 64.835, -14.1716, -33.0303, -21.5184, -16.2973, -3.54289, 16.2973, 3.54289, 53.062, -15.1412, 1.06287, -15.2344, -1.06287, 15.2344, 139.154, 2.5733, 10.983, 1.06287, -10.983, -1.06287, 62.2737, 8.24191, 9.21152, 8.14866, -9.21152, -8.14866, -45.0762, 17.4534, -15.2344, 7.44008, 15.2344, -7.44008, -45.4304, -15.1412, 0, 0, 0, 0, -33.0303, -21.5184 )
+"points": PoolVector2Array( -31.7358, 5.4613, 31.7358, -5.4613, -2.63745, -49.3051, 0, 0, 0, 0, 68.7815, -47.3783, -22.3945, -6.15598, 22.3945, 6.15598, 101.881, -36.0549, 1.06287, -15.2344, -1.06287, 15.2344, 141.948, -26.4736, 10.983, 1.06287, -10.983, -1.06287, 77.4917, -35.1839, 9.21152, 8.14866, -9.21152, -8.14866, 7.80933, -35.1839, 0, 0, 0, 0, -2.63745, -49.3051 )
 }
 
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -269,27 +266,27 @@ energy = 1.78
 shadow_enabled = true
 
 [node name="Path2D" type="Path2D" parent="."]
-position = Vector2( 450.452, 409.552 )
-scale = Vector2( 0.430193, 0.430193 )
-curve = SubResource( 19 )
+position = Vector2( 450.452, 408.912 )
+scale = Vector2( 0.430193, 0.417723 )
+curve = SubResource( 10 )
 script = ExtResource( 8 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2( -33.0303, -21.5184 )
+position = Vector2( -2.63745, -49.3051 )
 rotate = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 position = Vector2( -0.563477, 0.354248 )
-frames = SubResource( 18 )
+frames = SubResource( 14 )
 speed_scale = 0.5
 
 [node name="Light2D" type="Light2D" parent="Path2D/PathFollow2D/AnimatedSprite"]
-position = Vector2( 29.3906, 2.85156 )
+position = Vector2( 29.3906, 2.5918 )
 scale = Vector2( 0.0119802, 0.0119802 )
 z_index = 1
 texture = ExtResource( 5 )
 color = Color( 0.304688, 0.560998, 1, 1 )
-energy = 4.32
+energy = 8.72
 
 [node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D/AnimatedSprite"]
 visible = false
