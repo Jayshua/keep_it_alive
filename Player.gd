@@ -34,6 +34,7 @@ func oxygen_low():
 func set_canister_count(new_count):
 	self.oxygen_tanks = new_count
 	if new_count >= 1:
+		sound_player.queue_sound($BurstGetSound)
 		$Canister1.visible = true
 
 	if new_count >= 2:
@@ -93,7 +94,6 @@ func _physics_process(delta):
 			current.queue_free()
 		elif current.is_in_group("Item"):
 			if has_item:
-				print("HERE")
 				sound_player.queue_sound($BayFullSound)
 			else:
 				current.queue_free()
