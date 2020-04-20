@@ -102,7 +102,8 @@ func _physics_process(delta):
 
 	for possible_blocker in $DetectionArea.get_overlapping_bodies():
 		if possible_blocker.is_in_group("Blocker"):
-			sound_player.queue_sound($VineInstructionSound)
+			if velocity.length() <= MAX_MOVEMENT_SPEED:
+				sound_player.queue_sound($VineInstructionSound)
 
 	var max_speed
 	if in_current:

@@ -48,14 +48,17 @@ _data = {
 }
 
 [sub_resource type="AtlasTexture" id=11]
+flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=13]
+flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 64, 64 )
 
