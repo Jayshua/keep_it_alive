@@ -23,10 +23,13 @@ func _process(delta):
 			self.text += "\n> o2 burst: ready (spacebar)"
 
 	self.text += "\n> pod oxygen: " + String(int(ship.oxygen)) + "/" + String(int(ship.MAX_OXYGEN))
-	self.text += "\n> pod status: " + String(player.item_count) + "/" + String(player.MISSING_ITEMS)
+	self.text += "\n> pod status: " + String(ship.item_count) + "/" + String(ship.MISSING_ITEMS)
 
 	if exchanging:
 		self.text += "\n> transferring oxygen"
+	
+	if player.has_item:
+		self.text += "\n> cargo: pod fragment"
 
 
 	if connected:

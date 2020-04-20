@@ -11,11 +11,10 @@ const TRANSFER_RATE = 0.15
 const BURST_OXYGEN_USAGE = 30
 const BURST_ACCELERATION = 100
 const OXYGEN_TANK_SIZE = 20
-onready var MISSING_ITEMS = get_tree().get_nodes_in_group("Item").size()
 
 var velocity = Vector2(25, -25)
 var player_oxygen = BASE_OXYGEN
-var item_count = 0
+var has_item = false
 var burst_cooldown = 5
 var oxygen_tanks = 0
 var engine_sound = -30
@@ -75,6 +74,10 @@ func _physics_process(delta):
 			if current.get_parent().needs_oxygen():
 				current.get_parent().give_oxygen(TRANSFER_RATE)
 				player_oxygen -= TRANSFER_RATE
+			
+			if has_item:
+				current.get_parent().give_item()
+				has_item = false
 		elif current.get_collision_layer_bit(1):
 			in_current = true
 			velocity += current.get_force_vector()
@@ -83,8 +86,9 @@ func _physics_process(delta):
 			self.player_oxygen += OXYGEN_TANK_SIZE / 2
 			current.queue_free()
 		elif current.is_in_group("Item"):
-			current.queue_free()
-			item_count += 1
+			if not has_item:
+				current.queue_free()
+				has_item = true
 		elif current.is_in_group("PathEntry"):
 			var path = current.get_parent() as Path2D
 			var follower = path.get_node("PathFollow2D") as PathFollow2D
