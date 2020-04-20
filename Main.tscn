@@ -26,7 +26,7 @@ adjustment_enabled = true
 size = 20
 font_data = ExtResource( 12 )
 
-[sub_resource type="CapsuleShape2D" id=12]
+[sub_resource type="CapsuleShape2D" id=3]
 radius = 8.87274
 
 [node name="Node2D" type="Node2D"]
@@ -95,4 +95,4 @@ texture = ExtResource( 9 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0.482666, -0.862061 )
-shape = SubResource( 12 )
+shape = SubResource( 3 )

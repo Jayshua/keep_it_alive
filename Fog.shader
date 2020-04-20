@@ -5,7 +5,7 @@ uniform int OCTAVES = 4;
 uniform float SPEED = 0.01;
 
 float rand(vec2 coord){
-	return fract(sin(dot(coord, vec2(56, 79)) * 1000.0) * 1000.0);
+	return fract(sin(dot(coord, vec2(56, 61)) * 1000.0) * 1000.0);
 }
 
 float noise(vec2 coord){
