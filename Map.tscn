@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
@@ -7,7 +7,10 @@
 [ext_resource path="res://sprites/radialLight.png" type="Texture" id=5]
 [ext_resource path="res://Fog.shader" type="Shader" id=6]
 [ext_resource path="res://angler/Angler.tscn" type="PackedScene" id=7]
-[ext_resource path="res://sprites/Coral.png" type="Texture" id=9]
+[ext_resource path="res://scenes/GlowCoral.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/SimpleCoral.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Coral2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Grass.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.184982, 1 )
@@ -65,7 +68,7 @@ region_rect = Rect2( 0, 0, 640, 480 )
 
 [node name="Fog" type="Sprite" parent="."]
 material = SubResource( 4 )
-position = Vector2( 500.27, 299.05 )
+position = Vector2( 500.27, 299.187 )
 rotation = -1.5708
 scale = Vector2( 0.886, 2.114 )
 z_index = -1
@@ -176,68 +179,166 @@ position = Vector2( 883.895, 535.563 )
 ] instance=ExtResource( 3 )]
 position = Vector2( 858.013, 264.477 )
 
-[node name="Coral4" type="Sprite" parent="."]
-position = Vector2( 408.944, 215.238 )
-rotation = 0.210215
-scale = Vector2( 0.172869, 0.172869 )
-texture = ExtResource( 9 )
-flip_h = true
-
-[node name="Light2D" type="Light2D" parent="Coral4"]
-texture = ExtResource( 5 )
-texture_scale = 0.11
-color = Color( 0.988235, 0.0117647, 0.996078, 1 )
-energy = 2.05
-
-[node name="Light2D2" type="Light2D" parent="Coral4"]
-position = Vector2( 2.33984, -0.499268 )
-texture = ExtResource( 5 )
-texture_scale = 0.71
-color = Color( 1, 0.113725, 0.239216, 1 )
-energy = 1.78
-shadow_enabled = true
-
-[node name="Coral5" type="Sprite" parent="."]
-position = Vector2( 447.066, 221.802 )
-rotation = -2.29453
-scale = Vector2( 0.172869, 0.172869 )
-texture = ExtResource( 9 )
-flip_h = true
-
-[node name="Light2D" type="Light2D" parent="Coral5"]
-texture = ExtResource( 5 )
-texture_scale = 0.11
-color = Color( 0.988235, 0.0117647, 0.996078, 1 )
-energy = 2.05
-
-[node name="Light2D2" type="Light2D" parent="Coral5"]
-position = Vector2( -1.58447, 1.79297 )
-texture = ExtResource( 5 )
-texture_scale = 0.71
-color = Color( 1, 0.113725, 0.239216, 1 )
-energy = 1.78
-shadow_enabled = true
-
-[node name="Coral6" type="Sprite" parent="."]
-position = Vector2( 439.412, 256.789 )
-rotation = 1.41303
-scale = Vector2( 0.200375, 0.200375 )
-texture = ExtResource( 9 )
-flip_h = true
-
-[node name="Light2D" type="Light2D" parent="Coral6"]
-texture = ExtResource( 5 )
-texture_scale = 0.11
-color = Color( 0.988235, 0.0117647, 0.996078, 1 )
-energy = 2.05
-
-[node name="Light2D2" type="Light2D" parent="Coral6"]
-position = Vector2( 0.324341, -2.03882 )
-texture = ExtResource( 5 )
-texture_scale = 0.71
-color = Color( 1, 0.113725, 0.239216, 1 )
-energy = 1.78
-shadow_enabled = true
-
-[node name="AnimatedSprite" parent="." instance=ExtResource( 7 )]
+[node name="Angler" parent="." instance=ExtResource( 7 )]
 position = Vector2( 462.863, 400.506 )
+
+[node name="Coral" parent="." instance=ExtResource( 8 )]
+position = Vector2( 865.004, 195.575 )
+rotation = 1.8691
+
+[node name="Coral2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 881.172, 249.552 )
+
+[node name="Coral3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 884.052, 182.072 )
+rotation = 3.10661
+
+[node name="Coral4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 876.107, 187.619 )
+rotation = 2.60065
+
+[node name="Coral5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 929.507, 216.587 )
+rotation = -1.65788
+
+[node name="Coral6" parent="." instance=ExtResource( 8 )]
+position = Vector2( 903.941, 179.447 )
+rotation = -2.82261
+
+[node name="Light2D2" parent="Coral6" index="0"]
+color = Color( 0.309804, 0.309804, 0.309804, 1 )
+
+[node name="Coral7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 923.376, 190.129 )
+rotation = -1.4833
+
+[node name="Coral8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 920.093, 183.378 )
+rotation = -2.49896
+
+[node name="Coral9" parent="." instance=ExtResource( 11 )]
+position = Vector2( 895.735, 170.242 )
+rotation = 3.05492
+
+[node name="Coral10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 847.612, 211.391 )
+rotation = 1.6626
+
+[node name="Grass" parent="." instance=ExtResource( 11 )]
+position = Vector2( 525.444, 266.158 )
+rotation = -3.16121
+
+[node name="Grass10" parent="." instance=ExtResource( 11 )]
+position = Vector2( 492.198, 263.019 )
+rotation = -2.3377
+
+[node name="Grass11" parent="." instance=ExtResource( 11 )]
+position = Vector2( 543.851, 263.59 )
+rotation = -3.85915
+
+[node name="Grass12" parent="." instance=ExtResource( 11 )]
+position = Vector2( 506.752, 270.439 )
+rotation = -2.36469
+
+[node name="Grass2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 481.875, 289.923 )
+rotation = 0.822814
+
+[node name="Grass3" parent="." instance=ExtResource( 11 )]
+position = Vector2( 565.993, 291.506 )
+
+[node name="Grass4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 550.222, 297.486 )
+
+[node name="Grass5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 582.897, 262.242 )
+
+[node name="Grass6" parent="." instance=ExtResource( 11 )]
+position = Vector2( 590.459, 255.964 )
+rotation = -0.594152
+
+[node name="Grass7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 459.045, 284.359 )
+
+[node name="Grass8" parent="." instance=ExtResource( 11 )]
+position = Vector2( 492.434, 297.914 )
+
+[node name="Grass9" parent="." instance=ExtResource( 11 )]
+position = Vector2( 497.428, 297.486 )
+
+[node name="Coral11" parent="." instance=ExtResource( 10 )]
+position = Vector2( 494.491, 294.947 )
+
+[node name="Coral12" parent="." instance=ExtResource( 10 )]
+position = Vector2( 553.991, 294.519 )
+
+[node name="Coral13" parent="." instance=ExtResource( 10 )]
+position = Vector2( 488.284, 297.301 )
+rotation = -0.119557
+scale = Vector2( 0.130887, 0.130887 )
+
+[node name="Coral14" parent="." instance=ExtResource( 9 )]
+position = Vector2( 597.938, 250.144 )
+
+[node name="Coral15" parent="." instance=ExtResource( 9 )]
+position = Vector2( 471.376, 279.537 )
+
+[node name="Grass13" parent="." instance=ExtResource( 11 )]
+position = Vector2( 599.951, 121.577 )
+
+[node name="Grass14" parent="." instance=ExtResource( 11 )]
+position = Vector2( 573.162, 122.401 )
+
+[node name="Grass15" parent="." instance=ExtResource( 11 )]
+position = Vector2( 624.389, 114.812 )
+
+[node name="Grass16" parent="." instance=ExtResource( 11 )]
+position = Vector2( 581.954, 121.44 )
+
+[node name="Coral16" parent="." instance=ExtResource( 9 )]
+position = Vector2( 591.976, 117.575 )
+
+[node name="Coral17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 527.664, 105.373 )
+rotation = 0.399972
+
+[node name="Light2D2" parent="Coral17" index="0"]
+color = Color( 0.0509804, 0.254902, 0.796078, 1 )
+energy = 1.84
+
+[node name="Coral18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 607.364, 94.4011 )
+rotation = -2.38597
+
+[node name="Light2D2" parent="Coral18" index="0"]
+color = Color( 1, 0, 0.211765, 1 )
+
+[node name="Coral19" parent="." instance=ExtResource( 10 )]
+position = Vector2( 561.25, 70.0591 )
+rotation = -3.03634
+
+[node name="Coral20" parent="." instance=ExtResource( 10 )]
+position = Vector2( 524.088, 74.4474 )
+rotation = -3.83132
+
+[node name="Grass17" parent="." instance=ExtResource( 11 )]
+position = Vector2( 543.012, 66.4939 )
+rotation = 3.04477
+
+[node name="Grass18" parent="." instance=ExtResource( 11 )]
+position = Vector2( 571.672, 66.2195 )
+rotation = 3.11396
+
+[node name="Grass19" parent="." instance=ExtResource( 11 )]
+position = Vector2( 556.451, 66.4937 )
+rotation = 3.20462
+
+[node name="Coral21" parent="." instance=ExtResource( 9 )]
+position = Vector2( 549.183, 69.922 )
+rotation = -3.17863
+
+[editable path="Coral6"]
+
+[editable path="Coral17"]
+
+[editable path="Coral18"]

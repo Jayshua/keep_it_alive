@@ -14,7 +14,7 @@ shader_param/detail = 1.0
 shader_param/distortion = 0.759
 shader_param/heightOffset = 0.532
 
-[node name="Coral" type="Sprite"]
+[node name="Grass" type="Sprite"]
 material = SubResource( 1 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )

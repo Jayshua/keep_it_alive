@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Ship.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ship.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://audio/voice/PodLow/3.ogg" type="AudioStream" id=6]
 [ext_resource path="res://audio/voice/PodLow/4.ogg" type="AudioStream" id=7]
 [ext_resource path="res://audio/voice/PodLow/5.ogg" type="AudioStream" id=8]
+[ext_resource path="res://sprites/radialLight.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.6339
@@ -83,6 +84,12 @@ stream = ExtResource( 7 )
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSounds"]
 stream = ExtResource( 8 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 9 )
+texture_scale = 0.15
+energy = 0.46
+shadow_enabled = true
 [connection signal="body_entered" from="ExchangeDetector" to="." method="_on_ExchangeDetector_body_entered"]
 [connection signal="body_exited" from="ExchangeDetector" to="." method="_on_ExchangeDetector_body_exited"]
 [connection signal="body_entered" from="ConnectionDetector" to="." method="_on_ConnectionDetector_body_entered"]
