@@ -136,6 +136,7 @@ shape = SubResource( 3 )
 
 [node name="Sound" type="Node" parent="."]
 script = ExtResource( 2 )
+player_path = NodePath("../Player")
 
 [node name="ShuffleSounds" type="Node" parent="Sound"]
 
