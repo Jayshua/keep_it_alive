@@ -100,15 +100,9 @@ func _physics_process(delta):
 				sound_player.queue_sound($GetItemSounds.get_random_sound())
 				has_item = true
 
-		elif current.is_in_group("PathEntry"):
-			var path = current.get_parent() as Path2D
-			var follower = path.get_node("PathFollow2D") as PathFollow2D
-			var animation = path.get_node("AnimationPlayer") as AnimationPlayer
-			self.get_parent().remove_child(self)
-			follower.add_child(self)
-			self.position = Vector2(0, 0)
-			self.rotation = 0
-			animation.play("Follow")
+	for possible_blocker in $DetectionArea.get_overlapping_bodies():
+		if possible_blocker.is_in_group("Blocker"):
+			sound_player.queue_sound($VineInstructionSound)
 
 	var max_speed
 	if in_current:

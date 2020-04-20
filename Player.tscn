@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://sprites/Submarine.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://audio/voice/PodDeath/3.ogg" type="AudioStream" id=22]
 [ext_resource path="res://audio/voice/BayFull.ogg" type="AudioStream" id=23]
 [ext_resource path="res://audio/voice/BurstGet.ogg" type="AudioStream" id=24]
+[ext_resource path="res://audio/voice/VineInstructions.ogg" type="AudioStream" id=25]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -7.50556, 6.98503, -9.01008, 2.17063, -15.7051, 2.17065, -10.2137, -3.39603, -8.9349, -10.9938, -6.15158, -14.0028, 4.30471, -14.0028, 7.8403, -10.9186, 7.84031, -7.9096, 10.0971, -8.81231, 10.5484, -14.8303, 9.34479, -14.9808, 10.6236, -17.1623, 11.752, -14.8303, 10.9245, -14.7551, 10.8493, -7.00691, 8.66779, -5.57762, 8.59258, -3.39609, 13.9336, 2.09532, 7.76512, 2.09534, 5.80929, 7.43633, 5.65886, 14.4323, 3.55257, 16.689, -5.24877, 16.99, -7.43031, 14.2066 )
@@ -105,7 +106,7 @@ shape = SubResource( 2 )
 light_mask = 2
 rotation = 1.5708
 frames = ExtResource( 1 )
-frame = 8
+frame = 4
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -219,3 +220,6 @@ stream = ExtResource( 24 )
 
 [node name="BayFullSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 23 )
+
+[node name="VineInstructionSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
