@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://sprites/angler.png" type="Texture" id=7]
 [ext_resource path="res://AnglerPath.gd" type="Script" id=8]
 [ext_resource path="res://Coral.png" type="Texture" id=9]
+[ext_resource path="res://sprites/air_pocket.png" type="Texture" id=10]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.184982, 1 )
@@ -42,29 +43,48 @@ extents = Vector2( 19.2746, 10.084 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 515.673, 32 )
 
-[sub_resource type="Curve2D" id=14]
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 7.86902, 4.11444 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 10 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="Curve2D" id=11]
 _data = {
 "points": PoolVector2Array( -64.835, 14.1716, 64.835, -14.1716, -33.0303, -21.5184, -16.2973, -3.54289, 16.2973, 3.54289, 53.062, -15.1412, 1.06287, -15.2344, -1.06287, 15.2344, 139.154, 2.5733, 10.983, 1.06287, -10.983, -1.06287, 62.2737, 8.24191, 9.21152, 8.14866, -9.21152, -8.14866, -45.0762, 17.4534, -15.2344, 7.44008, 15.2344, -7.44008, -45.4304, -15.1412, 0, 0, 0, 0, -33.0303, -21.5184 )
 }
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -159,6 +179,21 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Surface"]
 position = Vector2( 7.15356, 10.9189 )
 shape = SubResource( 9 )
+
+[node name="AirPocket" type="Area2D" parent="."]
+position = Vector2( 897.033, 171.391 )
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AirPocket"]
+shape = SubResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="AirPocket"]
+position = Vector2( 0, 1.88413 )
+scale = Vector2( 0.472734, 0.472734 )
+z_index = -1
+frames = SubResource( 18 )
+playing = true
 
 [node name="Item" parent="." groups=[
 "Item",
@@ -271,7 +306,7 @@ shadow_enabled = true
 [node name="Path2D" type="Path2D" parent="."]
 position = Vector2( 450.452, 409.552 )
 scale = Vector2( 0.430193, 0.430193 )
-curve = SubResource( 14 )
+curve = SubResource( 11 )
 script = ExtResource( 8 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
@@ -280,7 +315,7 @@ rotate = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
 position = Vector2( -0.563477, 0.354248 )
-frames = SubResource( 18 )
+frames = SubResource( 15 )
 speed_scale = 0.5
 
 [node name="Light2D" type="Light2D" parent="Path2D/PathFollow2D/AnimatedSprite"]

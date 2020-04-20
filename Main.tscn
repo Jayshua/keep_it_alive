@@ -33,7 +33,7 @@ radius = 8.87274
 script = ExtResource( 10 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 535.38, 291.347 )
+position = Vector2( 894.291, 201.122 )
 rotation = 5.58406
 scale = Vector2( 0.2, 0.2 )
 
