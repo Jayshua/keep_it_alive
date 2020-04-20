@@ -25,8 +25,3 @@ func _process(delta):
 func get_force_vector():
 	return Vector2(cos(forceRotation + self.rotation) * forceMagnitude, sin(forceRotation + self.rotation) * forceMagnitude)
 
-#func _ready():
-#	self.connect("area_entered", self, "handle_enter")
-
-#func handle_enter(body):
-#	print("Here")
