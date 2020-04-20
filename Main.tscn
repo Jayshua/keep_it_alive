@@ -50,7 +50,7 @@ radius = 8.87274
 script = ExtResource( 10 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 533.959, 290.672 )
+position = Vector2( 449.02, 510.43 )
 rotation = 5.58406
 scale = Vector2( 0.2, 0.2 )
 sound_player_path = NodePath("../Sound")
@@ -136,6 +136,7 @@ shape = SubResource( 3 )
 
 [node name="Sound" type="Node" parent="."]
 script = ExtResource( 2 )
+player_path = NodePath("../Player")
 
 [node name="ShuffleSounds" type="Node" parent="Sound"]
 

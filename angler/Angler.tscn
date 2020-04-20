@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://angler/AnglerAggro.gd" type="Script" id=1]
 [ext_resource path="res://sprites/radialLight.png" type="Texture" id=2]
 [ext_resource path="res://sprites/angler.png" type="Texture" id=3]
 [ext_resource path="res://angler/AboutToAboutToBite.gd" type="Script" id=4]
 [ext_resource path="res://angler/AboutToBite.gd" type="Script" id=5]
 [ext_resource path="res://angler/AnglerKill.gd" type="Script" id=6]
 [ext_resource path="res://angler/AnglerMove.gd" type="Script" id=7]
+[ext_resource path="res://audio/Scream.ogg" type="AudioStream" id=8]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
@@ -82,7 +82,6 @@ texture = ExtResource( 2 )
 
 [node name="Aggro" type="Area2D" parent="."]
 position = Vector2( -1.23376, 4.94096 )
-script = ExtResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aggro"]
 shape = SubResource( 5 )
@@ -107,3 +106,9 @@ script = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AboutToAboutToBite"]
 shape = SubResource( 8 )
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -80.0
+[connection signal="body_entered" from="Aggro" to="." method="_on_Aggro_body_entered"]
+[connection signal="body_exited" from="Aggro" to="." method="_on_Aggro_body_exited"]

@@ -13,3 +13,6 @@ func _process(delta):
 
 	if ship.item_count >= ship.MISSING_ITEMS:
 		get_tree().change_scene("res://scenes/GameWin.tscn")
+
+	if Input.is_action_pressed("exit"):
+		get_tree().quit()

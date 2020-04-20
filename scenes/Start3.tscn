@@ -94,10 +94,10 @@ margin_bottom = 14.0
 custom_fonts/font = SubResource( 6 )
 custom_constants/line_spacing = 12
 text = "> loading drone directives
-> 1. supply oxygen to keep passenger alive
+> 1. supply oxygen to keep me alive
 > 2. return engine components to pod
 > 3. don't die
-> 4. please. you're my only drone."
+> 4. please don't die. you're my only drone."
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false

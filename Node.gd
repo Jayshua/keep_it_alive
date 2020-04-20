@@ -5,6 +5,9 @@ var unused_sounds
 var last_played = OS.get_ticks_msec()
 var current_sound = null
 var queued_sounds = []
+export(NodePath) var player_path
+onready var player = get_node(player_path)
+
 
 func _ready():
 	shuffle_sounds()
@@ -22,8 +25,8 @@ func queue_sound(sound):
 func _process(delta):
 	if current_sound and not current_sound.playing:
 		current_sound = null
-
-	if OS.get_ticks_msec() - last_played > PLAY_FREQUENCY:
+	print(player.position.y)
+	if OS.get_ticks_msec() - last_played > PLAY_FREQUENCY and player.position.y < 338:
 		if unused_sounds.size() == 0:
 			queued_sounds.push_back($Dave)
 			shuffle_sounds()
