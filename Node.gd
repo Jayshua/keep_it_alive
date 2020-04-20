@@ -25,7 +25,6 @@ func queue_sound(sound):
 func _process(delta):
 	if current_sound and not current_sound.playing:
 		current_sound = null
-	print(player.position.y)
 	if OS.get_ticks_msec() - last_played > PLAY_FREQUENCY and player.position.y < 338:
 		if unused_sounds.size() == 0:
 			queued_sounds.push_back($Dave)
