@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://sprites/radialLight.png" type="Texture" id=5]
 [ext_resource path="res://Fog.shader" type="Shader" id=6]
 [ext_resource path="res://sprites/angler.png" type="Texture" id=7]
+[ext_resource path="res://AnglerPath.gd" type="Script" id=8]
+[ext_resource path="res://Coral.png" type="Texture" id=9]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.184982, 1 )
@@ -37,27 +39,32 @@ polygon = PoolVector2Array( -449.773, -84.0254, 354.624, -84.3416, 354.121, -116
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 19.2746, 10.084 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 515.673, 32 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="Curve2D" id=14]
+_data = {
+"points": PoolVector2Array( -64.835, 14.1716, 64.835, -14.1716, -33.0303, -21.5184, -16.2973, -3.54289, 16.2973, 3.54289, 53.062, -15.1412, 1.06287, -15.2344, -1.06287, 15.2344, 139.154, 2.5733, 10.983, 1.06287, -10.983, -1.06287, 62.2737, 8.24191, 9.21152, 8.14866, -9.21152, -8.14866, -45.0762, 17.4534, -15.2344, 7.44008, 15.2344, -7.44008, -45.4304, -15.1412, 0, 0, 0, 0, -33.0303, -21.5184 )
+}
+
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=14]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"frames": [ SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -151,7 +158,7 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Surface"]
 position = Vector2( 7.15356, 10.9189 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="Item" parent="." groups=[
 "Item",
@@ -198,16 +205,96 @@ position = Vector2( 883.895, 535.563 )
 ] instance=ExtResource( 3 )]
 position = Vector2( 858.013, 264.477 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 443.367, 407.546 )
+[node name="Coral4" type="Sprite" parent="."]
+position = Vector2( 408.944, 215.238 )
+rotation = 0.210215
+scale = Vector2( 0.172869, 0.172869 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="Coral4"]
+texture = ExtResource( 5 )
+texture_scale = 0.11
+color = Color( 0.988235, 0.0117647, 0.996078, 1 )
+energy = 2.05
+
+[node name="Light2D2" type="Light2D" parent="Coral4"]
+position = Vector2( 2.33984, -0.499268 )
+texture = ExtResource( 5 )
+texture_scale = 0.71
+color = Color( 1, 0.113725, 0.239216, 1 )
+energy = 1.78
+shadow_enabled = true
+
+[node name="Coral5" type="Sprite" parent="."]
+position = Vector2( 447.066, 221.802 )
+rotation = -2.29453
+scale = Vector2( 0.172869, 0.172869 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="Coral5"]
+texture = ExtResource( 5 )
+texture_scale = 0.11
+color = Color( 0.988235, 0.0117647, 0.996078, 1 )
+energy = 2.05
+
+[node name="Light2D2" type="Light2D" parent="Coral5"]
+position = Vector2( -1.58447, 1.79297 )
+texture = ExtResource( 5 )
+texture_scale = 0.71
+color = Color( 1, 0.113725, 0.239216, 1 )
+energy = 1.78
+shadow_enabled = true
+
+[node name="Coral6" type="Sprite" parent="."]
+position = Vector2( 439.412, 256.789 )
+rotation = 1.41303
+scale = Vector2( 0.200375, 0.200375 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="Light2D" type="Light2D" parent="Coral6"]
+texture = ExtResource( 5 )
+texture_scale = 0.11
+color = Color( 0.988235, 0.0117647, 0.996078, 1 )
+energy = 2.05
+
+[node name="Light2D2" type="Light2D" parent="Coral6"]
+position = Vector2( 0.324341, -2.03882 )
+texture = ExtResource( 5 )
+texture_scale = 0.71
+color = Color( 1, 0.113725, 0.239216, 1 )
+energy = 1.78
+shadow_enabled = true
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2( 450.452, 409.552 )
 scale = Vector2( 0.430193, 0.430193 )
-frames = SubResource( 14 )
+curve = SubResource( 14 )
+script = ExtResource( 8 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2( -33.0303, -21.5184 )
+rotate = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Path2D/PathFollow2D"]
+position = Vector2( -0.563477, 0.354248 )
+frames = SubResource( 18 )
 speed_scale = 0.5
 
-[node name="Light2D" type="Light2D" parent="AnimatedSprite"]
-position = Vector2( 29.3906, 3.25781 )
+[node name="Light2D" type="Light2D" parent="Path2D/PathFollow2D/AnimatedSprite"]
+position = Vector2( 29.3906, 2.85156 )
 scale = Vector2( 0.0119802, 0.0119802 )
 z_index = 1
 texture = ExtResource( 5 )
-color = Color( 0, 0.368627, 1, 1 )
+color = Color( 0.304688, 0.560998, 1, 1 )
 energy = 4.32
+
+[node name="Sprite" type="Sprite" parent="Path2D/PathFollow2D/AnimatedSprite"]
+visible = false
+modulate = Color( 0.235294, 0.211765, 1, 1 )
+self_modulate = Color( 0.176471, 0.152941, 0.996078, 1 )
+position = Vector2( 29.4375, 2.88672 )
+scale = Vector2( 0.012, 0.012 )
+texture = ExtResource( 5 )
