@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://sprites/Submarine.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://audio/Collide.ogg" type="AudioStream" id=8]
 [ext_resource path="res://PlayFx.gd" type="Script" id=9]
 [ext_resource path="res://audio/SurfacingSplash.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sprites/Canister.png" type="Texture" id=11]
 
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -6.733, -9.87256, -5.18635, -11.2373, -7.75306, -12.7308, -0.897612, -14.2162, 6.03409, -12.6829, 4.18453, -10.8734, 9.00646, -8.05302, 5.54925, -5.77852, 6.3681, 6.32174, 9.18847, 6.77663, 9.18848, 9.14209, 4.36657, 10.4158, 6.18617, 12.7813, -1.27414, 15.6017, -7.64271, 12.6904, -5.45921, 11.1437, -10.1901, 9.23314, -10.0082, 6.68572, -7.64273, 6.50375, -7.64277, -5.2326, -10.8271, -8.05295 )
@@ -83,7 +84,7 @@ shape = SubResource( 2 )
 [node name="Sprite" type="AnimatedSprite" parent="."]
 rotation = 1.5708
 frames = ExtResource( 1 )
-frame = 5
+frame = 8
 playing = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -144,3 +145,17 @@ stream = ExtResource( 10 )
 script = ExtResource( 9 )
 min_volume = -5.0
 max_volume = -5.0
+
+[node name="Canister1" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1.75463, -8.12738 )
+rotation = 4.94597
+scale = Vector2( 0.452162, 0.452162 )
+texture = ExtResource( 11 )
+
+[node name="Canister2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0.607075, 3.58671 )
+rotation = 8.4167
+scale = Vector2( 0.452162, 0.452162 )
+texture = ExtResource( 11 )

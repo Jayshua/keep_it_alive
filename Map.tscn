@@ -1,9 +1,9 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://sprites/MapTiles.tres" type="TileSet" id=1]
 [ext_resource path="res://current/Current.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Item.tscn" type="PackedScene" id=3]
-[ext_resource path="res://audio/Current.wav" type="AudioStream" id=4]
+[ext_resource path="res://Blocker.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/radialLight.png" type="Texture" id=5]
 [ext_resource path="res://Fog.shader" type="Shader" id=6]
 [ext_resource path="res://sprites/angler.png" type="Texture" id=7]
@@ -31,36 +31,33 @@ colors = PoolColorArray( 1, 1, 1, 1, 0, 0.476562, 0.431885, 1 )
 [sub_resource type="GradientTexture" id=6]
 gradient = SubResource( 5 )
 
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 56.3097, 11.3725 )
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 14.9361, 13.5286 )
-
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 27.3177, 22.4854 )
-
-[sub_resource type="OccluderPolygon2D" id=10]
+[sub_resource type="OccluderPolygon2D" id=7]
 polygon = PoolVector2Array( -449.773, -84.0254, 354.624, -84.3416, 354.121, -116.481, -453.657, -115.145 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 19.2746, 10.084 )
+
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 515.673, 32 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
 atlas = ExtResource( 7 )
 region = Rect2( 128, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=15]
+[sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -108,87 +105,44 @@ texture = SubResource( 6 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 640, 480 )
 
-[node name="Current" parent="." instance=ExtResource( 2 )]
-position = Vector2( 378.266, 274.591 )
-rotation = 3.12266
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current"]
-shape = SubResource( 7 )
-
-[node name="Current2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 304.268, 286.989 )
-rotation = -2.76597
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current2"]
-position = Vector2( 6.96747, 2.52248 )
-shape = SubResource( 8 )
-
-[node name="Current3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 270.95, 303.842 )
-rotation = 2.81457
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current3"]
-position = Vector2( 3.50427, 1.87894 )
-shape = SubResource( 8 )
-
-[node name="Current4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 248.867, 335.611 )
-rotation = 2.78542
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current4"]
-position = Vector2( 1.18976, 1.48883 )
-shape = SubResource( 8 )
-
-[node name="Current5" parent="." instance=ExtResource( 2 )]
-position = Vector2( 233.757, 373.965 )
-rotation = 2.64451
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current5"]
-shape = SubResource( 8 )
-
-[node name="Current6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 226.396, 419.681 )
-rotation = 2.30066
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current6"]
-shape = SubResource( 8 )
-
-[node name="Current7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 238.988, 455.324 )
-rotation = 2.22876
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current7"]
-position = Vector2( 7.86504, 5.90088 )
-shape = SubResource( 8 )
-
-[node name="Current8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 260.102, 487.674 )
-rotation = 0.874321
-forceRotation = 3.142
-forceMagnitude = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Current8"]
-rotation = 0.0709569
-shape = SubResource( 9 )
-
 [node name="SurfaceOccluder" type="LightOccluder2D" parent="."]
 visible = false
 position = Vector2( 574.009, 99.5403 )
-occluder = SubResource( 10 )
+occluder = SubResource( 7 )
+
+[node name="Blocker" parent="." instance=ExtResource( 4 )]
+position = Vector2( 620.097, 269.183 )
+rotation = 0.0810739
+
+[node name="Blocker2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 150.288, 390.946 )
+rotation = 1.1735
+
+[node name="Current" parent="." instance=ExtResource( 2 )]
+position = Vector2( 414.033, 274.533 )
+forceMagnitude = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current"]
+position = Vector2( 1.83124, 0.366257 )
+shape = SubResource( 8 )
+
+[node name="Current2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 817.224, 382.07 )
+rotation = -2.45232
+forceMagnitude = 50.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current2"]
+position = Vector2( 1.83124, 0.366257 )
+shape = SubResource( 8 )
+
+[node name="Current3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 775.061, 488.033 )
+rotation = 0.304815
+forceMagnitude = 150.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Current3"]
+position = Vector2( 1.83124, 0.366257 )
+shape = SubResource( 8 )
 
 [node name="Surface" type="Area2D" parent="."]
 position = Vector2( 489.012, -27.3811 )
@@ -197,57 +151,57 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Surface"]
 position = Vector2( 7.15356, 10.9189 )
-shape = SubResource( 11 )
+shape = SubResource( 10 )
 
-[node name="Item" parent="." instance=ExtResource( 3 )]
-position = Vector2( 705.389, 440.688 )
+[node name="Item" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
+position = Vector2( 705.573, 440.504 )
 
-[node name="Item2" parent="." instance=ExtResource( 3 )]
+[node name="Item2" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 637.808, 484.243 )
 
-[node name="Item3" parent="." instance=ExtResource( 3 )]
+[node name="Item3" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 171.305, 476.369 )
 
-[node name="Item6" parent="." instance=ExtResource( 3 )]
+[node name="Item6" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 369.966, 101.592 )
 
-[node name="Item7" parent="." instance=ExtResource( 3 )]
+[node name="Item7" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 552.903, 131.9 )
 
-[node name="Item8" parent="." instance=ExtResource( 3 )]
+[node name="Item8" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 389.541, 286.547 )
 
-[node name="Item9" parent="." instance=ExtResource( 3 )]
+[node name="Item9" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 184.661, 51.1175 )
 
-[node name="Item4" parent="." instance=ExtResource( 3 )]
+[node name="Item4" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 883.895, 535.563 )
 
-[node name="Item5" parent="." instance=ExtResource( 3 )]
+[node name="Item5" parent="." groups=[
+"Item",
+] instance=ExtResource( 3 )]
 position = Vector2( 858.013, 264.477 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 355.8, 297.628 )
-stream = ExtResource( 4 )
-autoplay = true
-max_distance = 100.0
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 275.543, 450.731 )
-stream = ExtResource( 4 )
-autoplay = true
-max_distance = 100.0
-
-[node name="AudioStreamPlayer2D3" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 282.076, 355.252 )
-stream = ExtResource( 4 )
-autoplay = true
-max_distance = 150.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 443.367, 407.546 )
 scale = Vector2( 0.430193, 0.430193 )
-frames = SubResource( 15 )
+frames = SubResource( 14 )
 speed_scale = 0.5
 
 [node name="Light2D" type="Light2D" parent="AnimatedSprite"]

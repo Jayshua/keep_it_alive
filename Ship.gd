@@ -2,7 +2,7 @@ extends Node2D
 
 const MAX_OXYGEN = 50
 const LEAK_RATE = 0.5
-const MISSING_ITEMS = 6
+onready var MISSING_ITEMS = get_tree().get_nodes_in_group("Item").size()
 
 signal player_connection_change(is_connected)
 signal player_exchange_range(is_in_range)
