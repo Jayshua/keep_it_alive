@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/2.ogg-8b7379244c5b4133237af45feee73a59.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/DroneLow/2.ogg"
+dest_files=[ "res://.import/2.ogg-8b7379244c5b4133237af45feee73a59.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

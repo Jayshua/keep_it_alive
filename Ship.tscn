@@ -3,11 +3,11 @@
 [ext_resource path="res://Ship.gd" type="Script" id=1]
 [ext_resource path="res://sprites/ship.png" type="Texture" id=2]
 [ext_resource path="res://sprites/Bubble.png" type="Texture" id=3]
-[ext_resource path="res://audio/voice/ShipDeath/1.ogg" type="AudioStream" id=4]
-[ext_resource path="res://audio/voice/ShipDeath/3.ogg" type="AudioStream" id=5]
-[ext_resource path="res://audio/voice/ShipDeath/4.ogg" type="AudioStream" id=6]
-[ext_resource path="res://audio/voice/ShipDeath/2.ogg" type="AudioStream" id=7]
-[ext_resource path="res://audio/voice/OxygenInstructions.ogg" type="AudioStream" id=8]
+[ext_resource path="res://audio/voice/PodLow/1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://audio/voice/PodLow/2.ogg" type="AudioStream" id=5]
+[ext_resource path="res://audio/voice/PodLow/3.ogg" type="AudioStream" id=6]
+[ext_resource path="res://audio/voice/PodLow/4.ogg" type="AudioStream" id=7]
+[ext_resource path="res://audio/voice/PodLow/5.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.6339
@@ -69,20 +69,20 @@ __meta__ = {
 
 [node name="DeathSounds" type="Node" parent="."]
 
-[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSounds"]
-stream = ExtResource( 8 )
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="DeathSounds"]
 stream = ExtResource( 4 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="DeathSounds"]
-stream = ExtResource( 7 )
-
-[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DeathSounds"]
 stream = ExtResource( 5 )
 
-[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DeathSounds"]
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="DeathSounds"]
 stream = ExtResource( 6 )
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 7 )
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="DeathSounds"]
+stream = ExtResource( 8 )
 [connection signal="body_entered" from="ExchangeDetector" to="." method="_on_ExchangeDetector_body_entered"]
 [connection signal="body_exited" from="ExchangeDetector" to="." method="_on_ExchangeDetector_body_exited"]
 [connection signal="body_entered" from="ConnectionDetector" to="." method="_on_ConnectionDetector_body_entered"]

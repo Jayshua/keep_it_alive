@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/6.ogg-76d4d2be1c89d74ad6fec8c8290d95b8.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/Insults/6.ogg"
+dest_files=[ "res://.import/6.ogg-76d4d2be1c89d74ad6fec8c8290d95b8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

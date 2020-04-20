@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/VineCollision.ogg-923f31d6ed59a9eea98394296e9e9dff.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/Other/VineCollision.ogg"
+dest_files=[ "res://.import/VineCollision.ogg-923f31d6ed59a9eea98394296e9e9dff.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

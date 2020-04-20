@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/3.ogg-c03cb385468e5b87193fc9356d6c0d51.oggstr"
+
+[deps]
+
+source_file="res://audio/voice/PodLow/3.ogg"
+dest_files=[ "res://.import/3.ogg-c03cb385468e5b87193fc9356d6c0d51.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

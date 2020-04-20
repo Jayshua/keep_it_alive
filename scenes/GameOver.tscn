@@ -8,9 +8,9 @@
 [ext_resource path="res://scenes/ClickPlayer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://RandomSound.gd" type="Script" id=7]
 [ext_resource path="res://scenes/GameOver.gd" type="Script" id=8]
-[ext_resource path="res://audio/voice/GameOver/1.ogg" type="AudioStream" id=9]
-[ext_resource path="res://audio/voice/GameOver/2.ogg" type="AudioStream" id=10]
-[ext_resource path="res://audio/voice/GameOver/3.ogg" type="AudioStream" id=11]
+[ext_resource path="res://audio/voice/Lose/3.ogg" type="AudioStream" id=9]
+[ext_resource path="res://audio/voice/Lose/2.ogg" type="AudioStream" id=10]
+[ext_resource path="res://audio/voice/Lose/1.ogg" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 21
@@ -69,11 +69,11 @@ scene = ExtResource( 4 )
 script = ExtResource( 7 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="GameOverSounds"]
-stream = ExtResource( 9 )
+stream = ExtResource( 11 )
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="GameOverSounds"]
 stream = ExtResource( 10 )
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="GameOverSounds"]
-stream = ExtResource( 11 )
+stream = ExtResource( 9 )
 [connection signal="all_text_visible" from="Panel/Label" to="." method="_on_Label_all_text_visible"]
