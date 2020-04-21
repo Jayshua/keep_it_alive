@@ -14,7 +14,7 @@ func _process(delta):
 
 	if audio_target == -80 and scream.volume_db == audio_target and scream.playing:
 		scream.stop()
-	if audio_target == -5 and not scream.playing:
+	if audio_target == -7 and not scream.playing:
 		scream.play()
 
 	
@@ -24,7 +24,7 @@ func _physics_process(delta):
 		self.look_at(target.position)
 
 	if target and not scream.playing:
-		audio_target = -5
+		audio_target = -7
 	elif not target and scream.playing:
 		audio_target = -80
 
