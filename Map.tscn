@@ -337,8 +337,176 @@ rotation = 3.20462
 position = Vector2( 549.183, 69.922 )
 rotation = -3.17863
 
+[node name="Coral22" parent="." instance=ExtResource( 8 )]
+position = Vector2( 719.062, 265.539 )
+rotation = -2.34466
+
+[node name="Light2D2" parent="Coral22" index="0"]
+color = Color( 1, 0.113725, 0.839216, 1 )
+
+[node name="Coral23" parent="." instance=ExtResource( 8 )]
+position = Vector2( 663.706, 299.941 )
+rotation = 0.840691
+
+[node name="Light2D2" parent="Coral23" index="0"]
+color = Color( 0, 0.6, 1, 1 )
+energy = 2.91
+
+[node name="Coral24" parent="." instance=ExtResource( 8 )]
+position = Vector2( 715.37, 328.109 )
+rotation = -1.55205
+
+[node name="Light2D2" parent="Coral24" index="0"]
+color = Color( 1, 0.0117647, 0.0117647, 1 )
+energy = 2.91
+
+[node name="Coral25" parent="." instance=ExtResource( 10 )]
+position = Vector2( 697.237, 397.107 )
+rotation = 1.83967
+
+[node name="Coral26" parent="." instance=ExtResource( 10 )]
+position = Vector2( 714.374, 387.844 )
+rotation = 4.65921
+
+[node name="Coral27" parent="." instance=ExtResource( 10 )]
+position = Vector2( 715.301, 413.164 )
+rotation = 5.02015
+
+[node name="Coral28" parent="." instance=ExtResource( 10 )]
+position = Vector2( 705.265, 365.92 )
+rotation = 1.29095
+
+[node name="Coral29" parent="." instance=ExtResource( 9 )]
+position = Vector2( 698.163, 418.259 )
+rotation = 1.28714
+
+[node name="Coral30" parent="." instance=ExtResource( 9 )]
+position = Vector2( 705.096, 337.096 )
+rotation = 1.28714
+
+[node name="Grass20" parent="." instance=ExtResource( 11 )]
+position = Vector2( 715.833, 430.798 )
+rotation = -0.579582
+
+[node name="Grass24" parent="." instance=ExtResource( 11 )]
+position = Vector2( 718.075, 408.365 )
+rotation = -1.5914
+
+[node name="Grass25" parent="." instance=ExtResource( 11 )]
+position = Vector2( 717.638, 397.452 )
+rotation = -1.5914
+
+[node name="Grass21" parent="." instance=ExtResource( 11 )]
+position = Vector2( 693.982, 430.798 )
+rotation = 1.39242
+
+[node name="Grass22" parent="." instance=ExtResource( 11 )]
+position = Vector2( 693.794, 408.415 )
+rotation = 1.39242
+
+[node name="Grass23" parent="." instance=ExtResource( 11 )]
+position = Vector2( 701.277, 385.46 )
+rotation = 1.95769
+
+[node name="Coral31" parent="." instance=ExtResource( 8 )]
+position = Vector2( 852.769, 517.573 )
+
+[node name="Light2D2" parent="Coral31" index="0"]
+color = Color( 0.0313726, 0.176471, 0.00784314, 1 )
+
+[node name="Coral32" parent="." instance=ExtResource( 8 )]
+position = Vector2( 914.302, 488.266 )
+rotation = -3.69893
+
+[node name="Light2D2" parent="Coral32" index="0"]
+color = Color( 0.929412, 0.0941176, 0.329412, 1 )
+
+[node name="Grass26" parent="." instance=ExtResource( 11 )]
+position = Vector2( 912.06, 511.348 )
+
+[node name="Grass28" parent="." instance=ExtResource( 11 )]
+position = Vector2( 893.157, 525.985 )
+rotation = -0.682384
+
+[node name="Grass29" parent="." instance=ExtResource( 11 )]
+position = Vector2( 874.486, 528.406 )
+rotation = 0.722203
+
+[node name="Grass30" parent="." instance=ExtResource( 11 )]
+position = Vector2( 841.638, 519.646 )
+rotation = -0.0196896
+
+[node name="Grass31" parent="." instance=ExtResource( 11 )]
+position = Vector2( 872.873, 494.174 )
+rotation = -3.11921
+
+[node name="Grass32" parent="." instance=ExtResource( 11 )]
+position = Vector2( 919.667, 468.703 )
+rotation = -4.02926
+
+[node name="Grass33" parent="." instance=ExtResource( 11 )]
+position = Vector2( 946.637, 479.883 )
+rotation = -1.56042
+
+[node name="Grass27" parent="." instance=ExtResource( 11 )]
+position = Vector2( 936.379, 497.748 )
+rotation = -0.733155
+
+[node name="Coral33" parent="." instance=ExtResource( 8 )]
+position = Vector2( 150.142, 434.043 )
+rotation = 1.00919
+
+[node name="Light2D2" parent="Coral33" index="0"]
+color = Color( 0.827451, 0, 0.137255, 1 )
+
+[node name="Coral34" parent="." instance=ExtResource( 8 )]
+position = Vector2( 172.187, 448.875 )
+rotation = -2.10547
+
+[node name="Light2D2" parent="Coral34" index="0"]
+color = Color( 0.431373, 1, 0.113725, 1 )
+energy = 1.06
+
+[node name="Grass34" parent="." instance=ExtResource( 11 )]
+position = Vector2( 157.411, 466.263 )
+rotation = 0.863132
+
+[node name="Grass35" parent="." instance=ExtResource( 11 )]
+position = Vector2( 153.733, 462.235 )
+rotation = 0.863132
+
+[node name="Grass36" parent="." instance=ExtResource( 11 )]
+position = Vector2( 181.053, 457.507 )
+rotation = -1.67143
+
+[node name="Grass37" parent="." instance=ExtResource( 11 )]
+position = Vector2( 166.08, 433.164 )
+rotation = -1.56698
+
+[node name="Grass38" parent="." instance=ExtResource( 11 )]
+position = Vector2( 160.853, 410.449 )
+rotation = -2.35755
+
+[node name="Coral35" parent="." instance=ExtResource( 9 )]
+position = Vector2( 142.219, 416.941 )
+rotation = 0.8389
+
 [editable path="Coral6"]
 
 [editable path="Coral17"]
 
 [editable path="Coral18"]
+
+[editable path="Coral22"]
+
+[editable path="Coral23"]
+
+[editable path="Coral24"]
+
+[editable path="Coral31"]
+
+[editable path="Coral32"]
+
+[editable path="Coral33"]
+
+[editable path="Coral34"]
