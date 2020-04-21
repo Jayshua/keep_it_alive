@@ -165,7 +165,7 @@ func _physics_process(delta):
 	
 	$RunningSound.volume_db = engine_sound
 
-	$RadialLight.energy = lerp(0, 1.5, clamp(self.position.y - 380, 0, 300) / 200)
+	$RadialLight.energy = lerp(0, 1.5, clamp(self.position.y - 350, 0, 300) / 200)
 
 	if oxygen_low() and not played_low_oxygen_sound:
 		played_low_oxygen_sound = true
